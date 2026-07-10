@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: siteName,
     description: tagline[locale as Locale] || seoDefaults.descriptions[locale as Locale],
-    keywords: seoDefaults.keywords[locale as Locale],
+    keywords: [...seoDefaults.keywords[locale as Locale]],
     alternates: {
       canonical: `${siteProfile.domain}/${locale}`,
       languages: {

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: locale === "ar" ? "ArabVergleich | قارن أهم الخدمات في ألمانيا" : "ArabVergleich | Dienstleistungen in Deutschland vergleichen",
     description: siteChrome.homeHero.description[locale as Locale],
-    keywords: seoDefaults.keywords[locale as Locale],
+    keywords: [...seoDefaults.keywords[locale as Locale]],
     alternates: {
       canonical: `${siteProfile.domain}/${locale}`,
       languages: {

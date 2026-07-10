@@ -38,7 +38,7 @@ export async function generateMetadata({
 
     return {
       ...content.seo[locale as Locale],
-      keywords: seoDefaults.keywords[locale as Locale],
+      keywords: [...seoDefaults.keywords[locale as Locale]],
       alternates: {
         canonical: `${siteProfile.domain}/${locale}/${service}`,
         languages: {

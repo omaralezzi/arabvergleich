@@ -1,0 +1,13 @@
+.next
+.next-build
+.next-dev
+node_modules
+.vercel
+out
+dist
+coverage
+.DS_Store
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*

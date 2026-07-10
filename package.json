@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "APP_DIST_DIR=.next-dev next dev",
-    "build": "APP_DIST_DIR=.next-build next build",
-    "start": "APP_DIST_DIR=.next-build next start",
+    "build": "next build",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {

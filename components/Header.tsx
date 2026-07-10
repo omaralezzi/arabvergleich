@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { homeServiceCards } from "@/src/content/siteContent";
+import { siteProfile } from "@/src/content/siteSettings";
 import type { Locale } from "@/src/config/site";
 
 export function Header({ locale }: { locale: Locale }) {
@@ -11,7 +12,7 @@ export function Header({ locale }: { locale: Locale }) {
       <Container className="flex flex-col gap-4 py-4 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex items-center justify-between gap-4">
           <Link href={`/${locale}`} className="text-xl font-bold tracking-tight text-brand-navy">
-            ArabVergleich
+            {siteProfile.brandName}
           </Link>
           <div className="lg:hidden">
             <LanguageSwitcher locale={locale} />

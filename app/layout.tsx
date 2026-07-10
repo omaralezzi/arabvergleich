@@ -1,10 +1,37 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
+import { seoDefaults, siteProfile } from "@/src/content/siteSettings";
 
 export const metadata: Metadata = {
-  title: "ArabVergleich",
-  description: "ArabVergleich helps Arabic-speaking people in Germany compare essential services in simple language.",
+  metadataBase: new URL(siteProfile.domain),
+  title: {
+    default: seoDefaults.defaultTitle,
+    template: seoDefaults.titleTemplate,
+  },
+  description: seoDefaults.descriptions.ar,
+  applicationName: siteProfile.brandName,
+  referrer: "origin-when-cross-origin",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: siteProfile.domain,
+  },
+  openGraph: {
+    type: "website",
+    siteName: siteProfile.brandName,
+    url: siteProfile.domain,
+    title: seoDefaults.defaultTitle,
+    description: seoDefaults.descriptions.ar,
+    locale: "ar_DE",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: seoDefaults.defaultTitle,
+    description: seoDefaults.descriptions.ar,
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

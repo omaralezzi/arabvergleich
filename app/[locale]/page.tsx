@@ -7,6 +7,7 @@ import { Container } from "@/components/Container";
 import { FAQ } from "@/components/FAQ";
 import { Hero } from "@/components/Hero";
 import { ServiceCard } from "@/components/ServiceCard";
+import { seoDefaults, siteProfile } from "@/src/content/siteSettings";
 import { locales, type Locale } from "@/src/config/site";
 import { articles, homeServiceCards, mostUsedItems, siteChrome } from "@/src/content/siteContent";
 
@@ -19,6 +20,29 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: locale === "ar" ? "ArabVergleich | قارن أهم الخدمات في ألمانيا" : "ArabVergleich | Dienstleistungen in Deutschland vergleichen",
     description: siteChrome.homeHero.description[locale as Locale],
+    keywords: seoDefaults.keywords[locale as Locale],
+    alternates: {
+      canonical: `${siteProfile.domain}/${locale}`,
+      languages: {
+        ar: `${siteProfile.domain}/ar`,
+        de: `${siteProfile.domain}/de`,
+      },
+    },
+    openGraph: {
+      type: "website",
+      url: `${siteProfile.domain}/${locale}`,
+      title:
+        locale === "ar" ? "ArabVergleich | قارن أهم الخدمات في ألمانيا" : "ArabVergleich | Dienstleistungen in Deutschland vergleichen",
+      description: siteChrome.homeHero.description[locale as Locale],
+      siteName: siteProfile.brandName,
+      locale: locale === "ar" ? "ar_DE" : "de_DE",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        locale === "ar" ? "ArabVergleich | قارن أهم الخدمات في ألمانيا" : "ArabVergleich | Dienstleistungen in Deutschland vergleichen",
+      description: siteChrome.homeHero.description[locale as Locale],
+    },
   };
 }
 

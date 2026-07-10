@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/Container";
 import { SocialLinks } from "@/components/SocialLinks";
 import { footerDisclosure } from "@/src/content/siteContent";
+import { siteProfile } from "@/src/content/siteSettings";
 import type { Locale } from "@/src/config/site";
 
 export function Footer({ locale }: { locale: Locale }) {
@@ -21,7 +22,17 @@ export function Footer({ locale }: { locale: Locale }) {
           </Link>
         </div>
         <SocialLinks />
-        <p>ArabVergleich ist ein unabhaengiges Informations- und Vergleichsportal.</p>
+        <p>
+          {siteProfile.brandName}
+          {" "}
+          {locale === "ar"
+            ? "منصة مستقلة للمعلومات والمقارنات."
+            : "ist ein unabhaengiges Informations- und Vergleichsportal."}
+        </p>
+        <p className="text-xs text-slate-500">
+          {locale === "ar" ? "للتواصل: " : "Kontakt: "}
+          {siteProfile.contactEmail}
+        </p>
         <p className="text-xs text-gray-400">{footerDisclosure[locale]}</p>
       </Container>
     </footer>

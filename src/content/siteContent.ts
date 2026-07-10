@@ -1007,11 +1007,11 @@ export const legalPageContent = {
     seo: {
       ar: {
         title: "Impressum | ArabVergleich",
-        description: "Impressum Platzhalter mit Hinweisen fuer ArabVergleich.",
+        description: "البيانات القانونية لموقع ArabVergleich مع معلومات التشغيل والتواصل وروابط الشراكة.",
       },
       de: {
         title: "Impressum | ArabVergleich",
-        description: "Impressum Platzhalter fuer ArabVergleich mit CHECK24 Partnerhinweis.",
+        description: "Rechtliche Angaben zu ArabVergleich mit Betreiberinformationen, Kontakt und Partnerhinweisen.",
       },
     },
   },
@@ -1019,11 +1019,11 @@ export const legalPageContent = {
     seo: {
       ar: {
         title: "Datenschutz | ArabVergleich",
-        description: "Datenschutz Platzhalter fuer ArabVergleich mit Hinweisen zu Cookies und Partnerlinks.",
+        description: "سياسة الخصوصية لموقع ArabVergleich مع شرح استخدام الروابط والأدوات الخارجية.",
       },
       de: {
         title: "Datenschutzerklaerung | ArabVergleich",
-        description: "Einfache Datenschutzerklaerung als Platzhalter fuer ArabVergleich.",
+        description: "Datenschutzhinweise fuer ArabVergleich zu Hosting, Partnerlinks und externen Vergleichstools.",
       },
     },
   },

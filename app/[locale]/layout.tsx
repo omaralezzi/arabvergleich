@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { seoDefaults, siteProfile } from "@/src/content/siteSettings";
 import { localeMeta, locales, siteName, type Locale } from "@/src/config/site";
 import { tagline } from "@/src/config/site";
 
@@ -18,7 +19,28 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   return {
     title: siteName,
-    description: tagline[locale as Locale],
+    description: tagline[locale as Locale] || seoDefaults.descriptions[locale as Locale],
+    keywords: seoDefaults.keywords[locale as Locale],
+    alternates: {
+      canonical: `${siteProfile.domain}/${locale}`,
+      languages: {
+        ar: `${siteProfile.domain}/ar`,
+        de: `${siteProfile.domain}/de`,
+      },
+    },
+    openGraph: {
+      type: "website",
+      url: `${siteProfile.domain}/${locale}`,
+      siteName: siteProfile.brandName,
+      title: siteName,
+      description: tagline[locale as Locale] || seoDefaults.descriptions[locale as Locale],
+      locale: locale === "ar" ? "ar_DE" : "de_DE",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: siteName,
+      description: tagline[locale as Locale] || seoDefaults.descriptions[locale as Locale],
+    },
   };
 }
 

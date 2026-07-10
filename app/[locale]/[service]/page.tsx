@@ -12,6 +12,7 @@ import { Hero } from "@/components/Hero";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { WidgetLimitNotice } from "@/components/WidgetLimitNotice";
 import { legalPageContent, services, getAffiliateHtml } from "@/src/content/siteContent";
+import { legalContent, seoDefaults, siteProfile } from "@/src/content/siteSettings";
 import { locales, type Locale, serviceOrder, type ServiceSlug } from "@/src/config/site";
 
 const legalSlugs = ["impressum", "datenschutz", "ueber-uns"] as const;
@@ -33,11 +34,61 @@ export async function generateMetadata({
 
   if (service in services) {
     const content = services[service as ServiceSlug];
-    return content.seo[locale as Locale];
+    const alternateLocale = locale === "ar" ? "de" : "ar";
+
+    return {
+      ...content.seo[locale as Locale],
+      keywords: seoDefaults.keywords[locale as Locale],
+      alternates: {
+        canonical: `${siteProfile.domain}/${locale}/${service}`,
+        languages: {
+          ar: `${siteProfile.domain}/ar/${service}`,
+          de: `${siteProfile.domain}/de/${service}`,
+        },
+      },
+      openGraph: {
+        type: "article",
+        url: `${siteProfile.domain}/${locale}/${service}`,
+        siteName: siteProfile.brandName,
+        title: content.seo[locale as Locale].title,
+        description: content.seo[locale as Locale].description,
+        locale: locale === "ar" ? "ar_DE" : "de_DE",
+        alternateLocale: [alternateLocale === "ar" ? "ar_DE" : "de_DE"],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: content.seo[locale as Locale].title,
+        description: content.seo[locale as Locale].description,
+      },
+    };
   }
 
   if (legalSlugs.includes(service as LegalSlug)) {
-    return legalPageContent[service as LegalSlug].seo[locale as Locale];
+    const legalSeo = legalPageContent[service as LegalSlug].seo[locale as Locale];
+
+    return {
+      ...legalSeo,
+      alternates: {
+        canonical: `${siteProfile.domain}/${locale}/${service}`,
+        languages: {
+          ar: `${siteProfile.domain}/ar/${service}`,
+          de: `${siteProfile.domain}/de/${service}`,
+        },
+      },
+      openGraph: {
+        type: "article",
+        url: `${siteProfile.domain}/${locale}/${service}`,
+        siteName: siteProfile.brandName,
+        title: legalSeo.title,
+        description: legalSeo.description,
+        locale: locale === "ar" ? "ar_DE" : "de_DE",
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: legalSeo.title,
+        description: legalSeo.description,
+      },
+    };
   }
 
   return {};
@@ -90,22 +141,54 @@ function LegalPage({ locale, slug }: { locale: Locale; slug: LegalSlug }) {
         <div className="surface p-6 md:p-8">
           <Breadcrumbs locale={locale} current="Impressum" />
           <h1 className="mt-4 text-3xl font-bold text-brand-navy">Impressum</h1>
-          <p className="mt-4 text-sm leading-7 text-slate-600">
-            {locale === "ar"
-              ? "هذه صفحة Placeholder. أضف هنا لاحقاً اسم صاحب الموقع، العنوان، وسائل التواصل، والبيانات القانونية المطلوبة قبل النشر."
-              : "Dies ist ein Platzhalter. Trage hier vor dem Veroeffentlichen die vollstaendigen Angaben zum Seitenbetreiber, Kontakt und alle rechtlich notwendigen Daten ein."}
-          </p>
+          <p className="mt-4 text-sm leading-7 text-slate-600">{legalContent.impressum.intro[locale]}</p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="surface p-6 md:p-8">
+            <h2 className="text-2xl font-semibold text-brand-navy">{legalContent.impressum.operatorCardTitle[locale]}</h2>
+            <div className="mt-4 space-y-2 text-sm leading-7 text-slate-600">
+              <p>{siteProfile.ownerName}</p>
+              <p>{siteProfile.street}</p>
+              <p>{siteProfile.postalCodeCity}</p>
+              <p>{siteProfile.country}</p>
+            </div>
+          </div>
+          <div className="surface p-6 md:p-8">
+            <h2 className="text-2xl font-semibold text-brand-navy">{legalContent.impressum.contactCardTitle[locale]}</h2>
+            <div className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+              <p>{siteProfile.contactEmail}</p>
+              {siteProfile.phone ? <p>{siteProfile.phone}</p> : null}
+              <p>
+                {locale === "ar" ? "المسؤول عن المحتوى: " : "Verantwortlich fuer den Inhalt: "}
+                {siteProfile.responsiblePerson}
+              </p>
+              {legalContent.impressum.contactBody[locale].map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </div>
+          </div>
         </div>
         <div className="surface p-6 md:p-8">
-          <h2 className="text-2xl font-semibold text-brand-navy">CHECK24.net Partnerprogramm Hinweis</h2>
-          <p className="mt-4 text-sm leading-7 text-slate-600">
-            CHECK24.net Partnerprogramm
-            <br />
-            Wir nehmen am CHECK24.net Partnerprogramm teil. Auf unseren Seiten werden iFrame-Buchungsmasken und
-            andere Werbemittel eingebunden, an denen wir ueber Transaktionen, zum Beispiel durch Leads und Sales,
-            eine Werbekostenerstattung erhalten koennen. Weitere Informationen zur Datennutzung durch CHECK24.net
-            erhalten Sie in der Datenschutzerklaerung von CHECK24.net.
-          </p>
+          <h2 className="text-2xl font-semibold text-brand-navy">{legalContent.impressum.taxCardTitle[locale]}</h2>
+          <div className="mt-4 space-y-2 text-sm leading-7 text-slate-600">
+            <p>
+              {locale === "ar" ? "الرقم الضريبي: " : "Steuernummer: "}
+              {siteProfile.taxNumber}
+            </p>
+            <p>
+              {locale === "ar"
+                ? "حالياً يتم تشغيل الموقع بشكل شخصي. يمكن تحديث هذه البيانات لاحقاً عند التحول إلى نشاط تجاري."
+                : "Die Website wird derzeit privat betrieben. Diese Angaben koennen spaeter bei Umstellung auf eine gewerbliche Taetigkeit angepasst werden."}
+            </p>
+          </div>
+        </div>
+        <div className="surface p-6 md:p-8">
+          <h2 className="text-2xl font-semibold text-brand-navy">{legalContent.impressum.check24Title[locale]}</h2>
+          <div className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+            {legalContent.impressum.check24Body[locale].map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
         </div>
       </Container>
     );
@@ -119,25 +202,18 @@ function LegalPage({ locale, slug }: { locale: Locale; slug: LegalSlug }) {
           <h1 className="mt-4 text-3xl font-bold text-brand-navy">
             {locale === "ar" ? "سياسة الخصوصية" : "Datenschutzerklaerung"}
           </h1>
-          <p className="mt-4 text-sm leading-7 text-slate-600">
-            {locale === "ar"
-              ? "هذه نسخة مبسطة Placeholder ويجب مراجعتها قانونياً قبل النشر النهائي."
-              : "Dies ist eine einfache Platzhalter-Version und sollte vor der Veroeffentlichung rechtlich geprueft werden."}
-          </p>
+          <p className="mt-4 text-sm leading-7 text-slate-600">{legalContent.datenschutz.intro[locale]}</p>
         </div>
-        <div className="grid gap-6 md:grid-cols-2">
-          {[
-            locale === "ar" ? "Cookies: قد يستخدم الموقع ملفات تعريف الارتباط الضرورية أو التقنية." : "Cookies: Die Seite kann technisch notwendige oder funktionale Cookies verwenden.",
-            locale === "ar" ? "Affiliate Links: بعض الروابط قد تكون روابط شراكة." : "Affiliate Links: Einige Links koennen Partnerlinks sein.",
-            locale === "ar" ? "Eingebundene Vergleichstools: قد يتم تحميل أدوات مقارنة خارجية من مزودين شركاء." : "Eingebundene Vergleichstools: Externe Vergleichstools koennen von Partneranbietern geladen werden.",
-            locale === "ar" ? "Externe Anbieter: بعض المحتوى أو السكربتات قد تأتي من جهات خارجية." : "Externe Anbieter: Einzelne Inhalte oder Skripte koennen von externen Anbietern eingebunden werden.",
-            locale === "ar" ? "Analytics Placeholder: يمكن إضافة أدوات إحصائية لاحقاً بعد التحقق القانوني." : "Analytics Platzhalter: Spaeter koennen Analyse-Tools nach rechtlicher Pruefung ergaenzt werden.",
-          ].map((item) => (
-            <div key={item} className="surface p-6 text-sm leading-7 text-slate-600">
-              {item}
+        {legalContent.datenschutz.sections.map((section) => (
+          <section key={section.heading[locale]} className="surface p-6 md:p-8">
+            <h2 className="text-2xl font-semibold text-brand-navy">{section.heading[locale]}</h2>
+            <div className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+              {section.body[locale].map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
-          ))}
-        </div>
+          </section>
+        ))}
       </Container>
     );
   }
@@ -147,22 +223,15 @@ function LegalPage({ locale, slug }: { locale: Locale; slug: LegalSlug }) {
       <div className="surface p-6 md:p-8">
         <Breadcrumbs locale={locale} current={locale === "ar" ? "من نحن" : "Ueber uns"} />
         <h1 className="mt-4 text-3xl font-bold text-brand-navy">{locale === "ar" ? "من نحن" : "Ueber uns"}</h1>
-        <div className="mt-4 space-y-4 text-sm leading-7 text-slate-600">
-          <p>
-            {locale === "ar"
-              ? "ArabVergleich منصة مستقلة تهدف إلى شرح خدمات المقارنة الأساسية في ألمانيا بلغة بسيطة وواضحة للعرب المقيمين هناك."
-              : "ArabVergleich ist ein unabhaengiges Portal, das wichtige Vergleichsthemen in Deutschland fuer arabischsprachige Menschen einfach und klar erklaert."}
-          </p>
-          <p>
-            {locale === "ar"
-              ? "نركز على الفهم أولاً: ما الذي تحتاجه، ما الذي يجب مراجعته، ومتى قد يكون العرض مناسباً لك."
-              : "Der Fokus liegt zuerst auf Verstaendnis: Was brauchst du, worauf solltest du achten und wann kann ein Angebot zu dir passen."}
-          </p>
-          <p>
-            {locale === "ar"
-              ? "الموقع ليس تابعاً رسمياً لـ CHECK24، بل يستخدم بعض أدوات وروابط الشراكة بشكل واضح وهادئ."
-              : "Die Seite ist nicht offiziell Teil von CHECK24, sondern nutzt einzelne Partner-Tools und Links transparent und dezent."}
-          </p>
+        <div className="mt-4 space-y-6">
+          {legalContent.about.sections.map((section) => (
+            <section key={section.heading[locale]} className="space-y-3 text-sm leading-7 text-slate-600">
+              <h2 className="text-xl font-semibold text-brand-navy">{section.heading[locale]}</h2>
+              {section.body[locale].map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+            </section>
+          ))}
         </div>
       </div>
     </Container>

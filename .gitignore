@@ -2,6 +2,7 @@
 .next-build
 .next-dev
 node_modules
+.pnpm-store
 .vercel
 out
 dist

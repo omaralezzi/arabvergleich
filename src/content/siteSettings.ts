@@ -61,8 +61,8 @@ export const contentWorkflow = {
 export const legalContent = {
   impressum: {
     intro: {
-      ar: "هذه الصفحة تعرض البيانات القانونية الأساسية الخاصة بموقع ArabVergleich. تم إعدادها بصيغة ثنائية اللغة لسهولة الفهم، لكن من الأفضل مراجعتها قانونياً قبل الإطلاق النهائي.",
-      de: "Diese Seite enthaelt die grundlegenden rechtlichen Angaben fuer ArabVergleich. Sie ist zweisprachig aufgebaut, sollte aber vor der endgueltigen Veroeffentlichung rechtlich geprueft werden.",
+      ar: "هذه الصفحة تعرض البيانات القانونية الأساسية الخاصة بموقع ArabVergleich بصيغة ثنائية اللغة لسهولة الفهم. في حال الحاجة إلى تقييم قانوني ملزم، يُنصح بالرجوع إلى مختص قانوني.",
+      de: "Diese Seite enthaelt die grundlegenden rechtlichen Angaben fuer ArabVergleich in zweisprachiger Form. Fuer eine verbindliche rechtliche Bewertung sollte bei Bedarf fachkundiger rechtlicher Rat eingeholt werden.",
     },
     operatorCardTitle: {
       ar: "بيانات صاحب الموقع",
@@ -117,11 +117,11 @@ export const legalContent = {
         body: {
           ar: [
             "نحن نتعامل مع البيانات الشخصية فقط بالقدر اللازم لتشغيل الموقع وتحسين تجربة الاستخدام والرد على الرسائل.",
-            "إذا تمت إضافة أدوات جديدة مثل نموذج تواصل أو تحليلات أو ملفات تعريف ارتباط إضافية، فيجب تحديث هذه الصفحة وفقاً لذلك.",
+            "يتم تحديث هذه الصفحة عند حدوث تغييرات جوهرية في الأدوات المستخدمة أو في طريقة معالجة البيانات داخل الموقع.",
           ],
           de: [
             "Wir verarbeiten personenbezogene Daten nur insoweit, wie dies fuer den Betrieb der Website, die Nutzerfreundlichkeit und die Kommunikation erforderlich ist.",
-            "Wenn spaeter neue Tools wie Kontaktformulare, Analyse-Dienste oder weitere Cookies hinzukommen, sollte diese Seite entsprechend aktualisiert werden.",
+            "Diese Seite wird aktualisiert, wenn sich die eingesetzten Tools oder die Verarbeitung personenbezogener Daten auf der Website wesentlich aendern.",
           ],
         },
       },

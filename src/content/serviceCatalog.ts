@@ -1163,7 +1163,7 @@ const serviceSeeds: ServiceSeed[] = [
     icon: "Shield",
     toolKeys: ["tierhalterCalculator"],
     toolKind: "calculator",
-    title: { ar: "تأمين اصحاب الحيوانات", de: "Tierhalter" },
+    title: { ar: "تأمين أصحاب الحيوانات", de: "Tierhalter" },
     shortDescription: {
       ar: "خيار واضح لأصحاب الحيوانات مع وصول سريع إلى المقارنة المناسبة.",
       de: "Tierhalterhaftpflicht in einem eigenen, klaren Vergleichsbereich.",
@@ -1271,9 +1271,9 @@ const serviceSeeds: ServiceSeed[] = [
     icon: "WiFi",
     toolKeys: ["dslCalculator"],
     toolKind: "calculator",
-    title: { ar: "DSL والانترنت", de: "DSL und Internet" },
+    title: { ar: "DSL والإنترنت", de: "DSL und Internet" },
     shortDescription: {
-      ar: "افهم السرعات، مدة العقد، ورسوم التفعيل قبل اختيار الانترنت المنزلي.",
+      ar: "افهم السرعات، مدة العقد، ورسوم التفعيل قبل اختيار الإنترنت المنزلي.",
       de: "Verstehe Geschwindigkeit, Laufzeit und Anschlusskosten vor dem Abschluss.",
     },
   },
@@ -1321,7 +1321,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "calculator",
     title: { ar: "الموبايل", de: "Mobilfunk" },
     shortDescription: {
-      ar: "قارن عروض الموبايل والانترنت المحمول ضمن صفحة سهلة وواضحة.",
+      ar: "قارن عروض الموبايل والإنترنت المحمول ضمن صفحة سهلة وواضحة.",
       de: "Vergleiche Mobilfunktarife in einer klaren und leicht nutzbaren Seite.",
     },
   },

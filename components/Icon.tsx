@@ -62,6 +62,57 @@ export function Icon({ name, className = defaultClassName }: { name: string; cla
           <path d="M7 9h.01M17 15h.01" />
         </svg>
       );
+    case "Sun":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v3M12 19v3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M2 12h3M19 12h3M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" />
+        </svg>
+      );
+    case "Shield":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+          <path d="M12 3 5 6v5c0 4.5 2.9 8.6 7 10 4.1-1.4 7-5.5 7-10V6l-7-3Z" />
+        </svg>
+      );
+    case "Heart":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+          <path d="m12 20-1.4-1.3C5.4 14 2 10.9 2 7.1 2 4.9 3.8 3 6 3c1.5 0 3 .7 4 1.9C11 3.7 12.5 3 14 3c2.2 0 4 1.9 4 4.1 0 3.8-3.4 6.9-8.6 11.6Z" />
+        </svg>
+      );
+    case "Home":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+          <path d="M3 10.5 12 3l9 7.5" />
+          <path d="M5 9.5V21h14V9.5" />
+          <path d="M10 21v-6h4v6" />
+        </svg>
+      );
+    case "Briefcase":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+          <rect x="3" y="7" width="18" height="13" rx="2" />
+          <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
+          <path d="M3 12h18" />
+        </svg>
+      );
+    case "PiggyBank":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+          <path d="M5 13a7 7 0 0 1 7-7h2a5 5 0 0 1 5 5v4a3 3 0 0 1-3 3h-1l-1 2h-2l-.7-2H9.5L9 20H7l-.7-2H5a2 2 0 0 1-2-2v-1a3 3 0 0 1 2-2Z" />
+          <circle cx="16" cy="10" r="0.8" fill="currentColor" stroke="none" />
+          <path d="M10 9h3" />
+        </svg>
+      );
+    case "CreditCard":
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="M3 10h18" />
+          <path d="M7 15h3" />
+        </svg>
+      );
     case "Instagram":
       return (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>

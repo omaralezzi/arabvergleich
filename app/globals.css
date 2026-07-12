@@ -20,10 +20,24 @@ a {
   @apply transition-colors;
 }
 
+img,
+svg,
+iframe {
+  max-width: 100%;
+}
+
 .surface {
   @apply rounded-3xl border border-slate-200 bg-white shadow-soft;
 }
 
 .section-gap {
   @apply py-10 md:py-14;
+}
+
+.affiliate-embed {
+  -webkit-overflow-scrolling: touch;
+}
+
+.affiliate-embed iframe {
+  max-width: 100%;
 }

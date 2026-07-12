@@ -14,8 +14,8 @@ export function ArticleCard({
   cta: string;
 }) {
   return (
-    <article className="surface p-6">
-      <h3 className="text-lg font-semibold text-brand-navy">{title}</h3>
+    <article className="surface min-w-0 p-5 sm:p-6">
+      <h3 className="text-lg font-semibold text-brand-navy sm:text-xl">{title}</h3>
       <p className="mt-3 text-sm leading-7 text-slate-600">{description}</p>
       <div className="mt-5 space-y-4">
         {sections.map((section) => (
@@ -31,7 +31,7 @@ export function ArticleCard({
       </div>
       <Link
         href={href}
-        className="mt-5 inline-flex rounded-full border border-brand-blue px-4 py-2 text-sm font-semibold text-brand-blue hover:bg-brand-blue hover:text-white"
+        className="mt-5 inline-flex w-full items-center justify-center rounded-full border border-brand-blue px-4 py-3 text-sm font-semibold text-brand-blue hover:bg-brand-blue hover:text-white sm:w-fit sm:py-2"
       >
         {cta}
       </Link>

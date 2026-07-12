@@ -391,7 +391,7 @@ export const mostUsedItems: MostUsedItem[] = [
   },
 ] as const;
 
-export const services: Record<ServiceSlug, ServiceOverview> = {
+export const services: Partial<Record<ServiceSlug, ServiceOverview>> = {
   dsl: {
     slug: "dsl",
     icon: "WiFi",
@@ -1000,7 +1000,9 @@ export const services: Record<ServiceSlug, ServiceOverview> = {
   },
 };
 
-export const homeServiceCards = serviceOrder.map((slug) => services[slug]);
+export const homeServiceCards = serviceOrder
+  .map((slug) => services[slug])
+  .filter((service): service is ServiceOverview => Boolean(service));
 
 export const legalPageContent = {
   impressum: {

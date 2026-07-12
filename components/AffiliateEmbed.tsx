@@ -64,5 +64,5 @@ export function AffiliateEmbed({ html, className = "" }: { html: string; classNa
     };
   }, [html, isVisible]);
 
-  return <div ref={hostRef} className={className} />;
+  return <div ref={hostRef} className={`affiliate-embed w-full max-w-full overflow-x-auto ${className}`} />;
 }

@@ -11,6 +11,13 @@ export const metadata: Metadata = {
   },
   description: seoDefaults.descriptions.ar,
   applicationName: siteProfile.brandName,
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: ["/icon.svg"],
+    apple: ["/icon.svg"],
+  },
   referrer: "origin-when-cross-origin",
   robots: {
     index: true,

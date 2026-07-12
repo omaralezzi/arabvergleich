@@ -12,7 +12,7 @@ export function SocialLinks() {
           href={item.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 hover:border-brand-blue hover:text-brand-blue"
+          className="inline-flex min-h-11 items-center gap-2 rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-600 hover:border-brand-blue hover:text-brand-blue"
         >
           <Icon name={item.name} className="h-4 w-4" />
           <span>{item.name}</span>

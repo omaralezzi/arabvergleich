@@ -50,6 +50,7 @@ export const seoDefaults = {
 
 export const contentWorkflow = {
   quickEditFiles: [
+    "src/content/serviceCatalog.ts",
     "src/content/siteContent.ts",
     "src/content/siteSettings.ts",
     "src/config/affiliateTools.ts",

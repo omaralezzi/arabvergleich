@@ -11,7 +11,8 @@ import { FAQ } from "@/components/FAQ";
 import { Hero } from "@/components/Hero";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { WidgetLimitNotice } from "@/components/WidgetLimitNotice";
-import { legalPageContent, services, getAffiliateHtml } from "@/src/content/siteContent";
+import { legalPageContent } from "@/src/content/siteContent";
+import { getAffiliateHtml, getServiceSiblings, serviceCategoryMap, serviceToCategoryMap, services } from "@/src/content/serviceCatalog";
 import { legalContent, seoDefaults, siteProfile } from "@/src/content/siteSettings";
 import { locales, type Locale, serviceOrder, type ServiceSlug } from "@/src/config/site";
 
@@ -259,6 +260,8 @@ export default async function ServicePage({
   }
 
   const content = services[service as ServiceSlug];
+  const category = serviceCategoryMap[serviceToCategoryMap[service as ServiceSlug]];
+  const siblingServices = getServiceSiblings(service as ServiceSlug);
   const isBank = content.slug === "c24-bank";
   const needsWidgetLimitNotice =
     currentLocale === "ar" &&
@@ -273,7 +276,7 @@ export default async function ServicePage({
           <>
             <Link
               href={`#comparison`}
-              className="rounded-full bg-brand-orange px-5 py-3 text-sm font-semibold text-white hover:bg-orange-600"
+              className="inline-flex min-h-12 items-center justify-center rounded-full bg-brand-orange px-5 py-3 text-sm font-semibold text-white hover:bg-orange-600 sm:min-h-0"
             >
               {content.ctaLabel[currentLocale]}
             </Link>
@@ -283,13 +286,35 @@ export default async function ServicePage({
       />
 
       <Container className="space-y-8">
-        <div className="surface p-6 md:p-8">
+        <div className="surface p-5 sm:p-6 md:p-8">
           <Breadcrumbs locale={currentLocale} current={content.title[currentLocale]} />
+          <div className="mt-4 inline-flex rounded-full bg-brand-mist px-4 py-2 text-sm font-semibold text-brand-navy">
+            {category.title[currentLocale]}
+          </div>
           <p className="mt-4 text-base leading-8 text-slate-600">{content.shortDescription[currentLocale]}</p>
+          <div className="-mx-1 mt-6 flex gap-2 overflow-x-auto px-1 pb-1 lg:mx-0 lg:flex-wrap lg:overflow-visible lg:px-0">
+            {siblingServices.map((sibling) => {
+              const active = sibling.slug === content.slug;
+
+              return (
+                <Link
+                  key={sibling.slug}
+                  href={`/${currentLocale}/${sibling.slug}`}
+                  className={
+                    active
+                      ? "whitespace-nowrap rounded-full bg-brand-navy px-4 py-2 text-sm font-semibold text-white"
+                      : "whitespace-nowrap rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700 hover:border-brand-blue hover:text-brand-blue"
+                  }
+                >
+                  {sibling.title[currentLocale]}
+                </Link>
+              );
+            })}
+          </div>
         </div>
 
         {content.infoBox ? (
-          <section className="surface p-6 md:p-8">
+          <section className="surface p-5 sm:p-6 md:p-8">
             <h2 className="text-2xl font-semibold text-brand-navy">{content.infoBox[currentLocale].title}</h2>
             <div className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
               {content.infoBox[currentLocale].body.map((paragraph) => (
@@ -299,7 +324,7 @@ export default async function ServicePage({
           </section>
         ) : null}
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-4 sm:gap-6 lg:grid-cols-3">
           <InfoList title={currentLocale === "ar" ? "متى تحتاج هذه الخدمة؟" : "Wann brauchst du diesen Vergleich?"} items={content.whenYouNeedIt[currentLocale]} />
           <InfoList title={currentLocale === "ar" ? "نصائح قبل المقارنة" : "Tipps vor dem Vergleich"} items={content.tips[currentLocale]} />
           <InfoList title={currentLocale === "ar" ? "أمثلة عملية" : "Praktische Beispiele"} items={content.examples[currentLocale]} />
@@ -319,8 +344,8 @@ export default async function ServicePage({
             />
           ) : null}
           {content.toolKeys.map((toolKey, index) => (
-            <section key={toolKey} className="surface p-6 md:p-8">
-              <div className="mb-4 flex items-center justify-between gap-4">
+            <section key={toolKey} className="surface p-5 sm:p-6 md:p-8">
+              <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <h2 className="text-2xl font-semibold text-brand-navy">
                   {currentLocale === "ar"
                     ? index === 0

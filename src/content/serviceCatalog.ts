@@ -18,7 +18,7 @@ type ServiceSeed = {
 type ServiceWikiOverride = Partial<
   Pick<
     ServicePageData,
-    "heroTitle" | "heroDescription" | "whenYouNeedIt" | "tips" | "examples" | "faq" | "usageGuide" | "infoBox" | "seo"
+    "ctaLabel" | "heroTitle" | "heroDescription" | "whenYouNeedIt" | "tips" | "examples" | "faq" | "usageGuide" | "infoBox" | "seo"
   >
 >;
 
@@ -74,7 +74,7 @@ const categoryDefinitions: ServiceCategory[] = [
       de: "Auto und Mobilitaet",
     },
     description: {
-      ar: "كل ما يتعلق بتامين السيارة والدراجة النارية ضمن قسم واحد سهل الوصول.",
+      ar: "كل ما يتعلق بتأمين السيارة والدراجة النارية ضمن قسم واحد سهل الوصول.",
       de: "Kfz- und Motorradvergleiche an einem Ort, damit Nutzer schneller zum passenden Bereich kommen.",
     },
     serviceSlugs: ["kfz-versicherung", "motorrad"],
@@ -87,7 +87,7 @@ const categoryDefinitions: ServiceCategory[] = [
       de: "Vorsorge und Zukunftsschutz",
     },
     description: {
-      ar: "خيارات الادخار والحماية الطويلة الامد بطريقة مفهومة وبسيطة.",
+      ar: "خيارات الادخار والحماية الطويلة الأمد بطريقة مفهومة وبسيطة.",
       de: "Altersvorsorge und Absicherung in einer leicht verstaendlichen Navigation.",
     },
     serviceSlugs: ["rente", "berufsunfaehigkeit", "leben", "unfall", "riester-rente", "risikoleben", "ruerup-rente", "pflegezusatz"],
@@ -96,11 +96,11 @@ const categoryDefinitions: ServiceCategory[] = [
     slug: "gesundheit",
     icon: "Shield",
     title: {
-      ar: "التامين الصحي",
+      ar: "التأمين الصحي",
       de: "Krankenversicherungen",
     },
     description: {
-      ar: "من التامين الصحي الخاص حتى التامينات الاضافية ضمن قسم واحد مرتب.",
+      ar: "من التأمين الصحي الخاص حتى التأمينات الإضافية ضمن قسم واحد مرتب.",
       de: "Private Krankenversicherung und Zusatzbausteine sauber nach Zielgruppe sortiert.",
     },
     serviceSlugs: ["pkv-vollversicherung", "pkv-beamte", "krankenzusatz", "pkv-studenten", "pkv-ue55"],
@@ -109,11 +109,11 @@ const categoryDefinitions: ServiceCategory[] = [
     slug: "sach",
     icon: "Home",
     title: {
-      ar: "التامينات اليومية والممتلكات",
+      ar: "التأمينات اليومية والممتلكات",
       de: "Sachversicherungen",
     },
     description: {
-      ar: "التامينات المهمة للحياة اليومية والمنزل والاعمال الصغيرة.",
+      ar: "التأمينات المهمة للحياة اليومية والمنزل والأعمال الصغيرة.",
       de: "Alltags- und Sachversicherungen fuer Privatpersonen, Immobilien und kleine Unternehmen.",
     },
     serviceSlugs: [
@@ -144,11 +144,11 @@ const categoryDefinitions: ServiceCategory[] = [
     slug: "alltag",
     icon: "WiFi",
     title: {
-      ar: "الخدمات اليومية والسفر",
+      ar: "الإنترنت والموبايل والسفر",
       de: "Alltag, Internet und Reisen",
     },
     description: {
-      ar: "الانترنت والموبايل والسفر وتاجير السيارات ضمن قسم عملي وسهل الاستخدام.",
+      ar: "الإنترنت والموبايل والسفر وتأجير السيارات ضمن قسم عملي وسهل الاستخدام.",
       de: "Internet, Mobilfunk, Reisen und Mietwagen gebuendelt fuer einen schnelleren Einstieg.",
     },
     serviceSlugs: ["dsl", "mobilfunk", "pauschalreise", "mietwagen"],
@@ -157,14 +157,14 @@ const categoryDefinitions: ServiceCategory[] = [
 
 const calculatorGuide = {
   ar: {
-    title: "كيف تستخدم اداة المقارنة؟",
+    title: "كيف تستخدم أداة المقارنة؟",
     steps: [
-      "ابدأ بالبيانات الاساسية المطلوبة حتى تظهر لك النتائج المناسبة لوضعك.",
-      "راجع الفلاتر او الخيارات الظاهرة وعدلها فقط عند الحاجة حتى لا تتشتت.",
-      "اقرن بين السعر والشروط ومدة الالتزام، ولا تعتمد على اول نتيجة فقط.",
-      "عندما تجد عرضا مناسبا، افتح التفاصيل ثم اكمل الطلب عبر الجهة الرسمية.",
+      "ابدأ بالبيانات الأساسية المطلوبة حتى تظهر لك النتائج المناسبة لوضعك.",
+      "راجع الفلاتر أو الخيارات الظاهرة وعدلها فقط عند الحاجة حتى لا تتشتت.",
+      "قارن بين السعر والشروط ومدة الالتزام، ولا تعتمد على أول نتيجة فقط.",
+      "عندما تجد عرضاً مناسباً، افتح التفاصيل ثم أكمل الطلب عبر الجهة الرسمية.",
     ],
-    note: "الافضل دائما مقارنة اكثر من نتيجة واحدة قبل اتخاذ القرار النهائي.",
+    note: "الأفضل دائماً مقارنة أكثر من نتيجة واحدة قبل اتخاذ القرار النهائي.",
   },
   de: {
     title: "Wie nutzt du dieses Vergleichstool?",
@@ -182,12 +182,12 @@ const formGuide = {
   ar: {
     title: "كيف تستخدم هذا النموذج؟",
     steps: [
-      "جهز البيانات المهمة مسبقا مثل الرمز البريدي او المعلومات الشخصية او تفاصيل العقد الحالي.",
+      "جهز البيانات المهمة مسبقاً مثل الرمز البريدي أو المعلومات الشخصية أو تفاصيل العقد الحالي.",
       "املأ الحقول خطوة خطوة ولا تنتقل للمرحلة التالية قبل مراجعة المعلومات.",
-      "اذا ظهر لك اكثر من خيار، ركز على الواضح والمناسب لك بدل متابعة كل احتمال.",
-      "بعد الانتهاء، اكمل الطلب من خلال الشريك الرسمي وتحقق من اي شروط اضافية.",
+      "إذا ظهر لك أكثر من خيار، ركز على الواضح والمناسب لك بدل متابعة كل احتمال.",
+      "بعد الانتهاء، أكمل الطلب من خلال الشريك الرسمي وتحقق من أي شروط إضافية.",
     ],
-    note: "اذا لم تكن متاكدا من معلومة معينة، توقف واقرأ الشرح الموجود في نفس الصفحة قبل المتابعة.",
+    note: "إذا لم تكن متأكداً من معلومة معينة، توقف واقرأ الشرح الموجود في نفس الصفحة قبل المتابعة.",
   },
   de: {
     title: "Wie nutzt du dieses Formular?",
@@ -208,7 +208,7 @@ function getGuide(toolKind: ToolKind) {
 const serviceWikiOverrides: Partial<Record<ServiceSlug, ServiceWikiOverride>> = {
   solar: {
     heroTitle: {
-      ar: "دليل مبسط للطاقة الشمسية في المانيا",
+      ar: "دليل مبسط للطاقة الشمسية في ألمانيا",
       de: "Solaranlage in Deutschland einfach erklaert",
     },
     heroDescription: {
@@ -222,6 +222,18 @@ const serviceWikiOverrides: Partial<Record<ServiceSlug, ServiceWikiOverride>> = 
     tips: {
       ar: ["جهز معلومات بسيطة عن نوع المبنى وعدد الطوابق أو شكل السطح.", "لا تبدأ بالسعر فقط، بل اسأل أولاً: هل التركيب مناسب تقنياً لمبناك؟", "افهم هل هدفك التوفير الشهري أم الاستثمار طويل المدى."],
       de: ["Halte einfache Angaben zum Gebaeudetyp und zur Dachsituation bereit.", "Starte nicht nur mit dem Preis, sondern zuerst mit der Frage, ob dein Gebaeude technisch geeignet ist.", "Klaere fuer dich, ob es vor allem um monatliche Ersparnis oder langfristige Investition geht."],
+    },
+    examples: {
+      ar: [
+        "صاحب بيت يريد معرفة إن كان السطح مناسباً قبل طلب عرض تركيب.",
+        "عائلة تريد تقليل فاتورة الكهرباء على المدى الطويل وتحتاج نقطة بداية واضحة.",
+        "مستخدم يريد فهماً أولياً قبل أن يتواصل مع شركة الطاقة الشمسية.",
+      ],
+      de: [
+        "Eine Hausbesitzerin moechte erst wissen, ob das Dach grundsaetzlich geeignet ist.",
+        "Eine Familie will langfristig Stromkosten senken und braucht einen klaren Einstieg.",
+        "Jemand moechte sich zuerst orientieren, bevor ein Anbieter kontaktiert wird.",
+      ],
     },
     infoBox: {
       ar: {
@@ -242,7 +254,7 @@ const serviceWikiOverrides: Partial<Record<ServiceSlug, ServiceWikiOverride>> = 
   },
   "kfz-versicherung": {
     heroTitle: {
-      ar: "كيف تقارن تامين السيارة في المانيا؟",
+      ar: "كيف تقارن تأمين السيارة في ألمانيا؟",
       de: "Kfz-Versicherung in Deutschland richtig vergleichen",
     },
     heroDescription: {
@@ -468,7 +480,7 @@ const serviceWikiOverrides: Partial<Record<ServiceSlug, ServiceWikiOverride>> = 
   },
   haftpflicht: {
     heroTitle: {
-      ar: "هل تحتاج تأمين المسؤولية في المانيا؟",
+      ar: "هل تحتاج تأمين المسؤولية في ألمانيا؟",
       de: "Brauchst du eine Haftpflichtversicherung in Deutschland?",
     },
     heroDescription: {
@@ -625,6 +637,14 @@ const serviceWikiOverrides: Partial<Record<ServiceSlug, ServiceWikiOverride>> = 
     },
   },
   dsl: {
+    heroTitle: {
+      ar: "كيف تختار إنترنت المنزل وDSL في ألمانيا؟",
+      de: "DSL und Internet zuhause in Deutschland einfach waehlen",
+    },
+    heroDescription: {
+      ar: "هنا تفهم السرعة المناسبة، مدة العقد، ورسوم البداية، ثم تستخدم المقارنة بطريقة أبسط حسب عدد الأشخاص وطبيعة الاستخدام في البيت.",
+      de: "Hier verstehst du passende Geschwindigkeit, Laufzeit und Startkosten und nutzt den Vergleich danach gezielter fuer deinen Haushalt.",
+    },
     infoBox: {
       ar: {
         title: "كيف تختار عقد DSL بشكل أبسط؟",
@@ -641,8 +661,28 @@ const serviceWikiOverrides: Partial<Record<ServiceSlug, ServiceWikiOverride>> = 
         ],
       },
     },
+    examples: {
+      ar: [
+        "طالب يعيش وحده ويحتاج إنترنتاً مستقراً للدراسة والمكالمات.",
+        "عائلة من 4 أشخاص تستخدم البث والعمل من المنزل وتحتاج سرعة أعلى.",
+        "مستخدم يريد فقط تخفيض السعر دون تغيير كبير في مستوى الخدمة.",
+      ],
+      de: [
+        "Ein Student lebt allein und braucht stabiles Internet fuer Studium und Videoanrufe.",
+        "Eine vierkoepfige Familie streamt viel und arbeitet teilweise von zuhause.",
+        "Jemand moechte vor allem den Preis senken, ohne grosse Aenderung beim Nutzungsprofil.",
+      ],
+    },
   },
   strom: {
+    heroTitle: {
+      ar: "مقارنة الكهرباء في ألمانيا بشكل أوضح",
+      de: "Strom in Deutschland klarer vergleichen",
+    },
+    heroDescription: {
+      ar: "هذه الصفحة تساعدك على فهم ما يفرق فعلاً بين عروض الكهرباء: التكلفة السنوية، مدة العقد، الضمان السعري، والبونصات قبل الدخول إلى النتائج.",
+      de: "Diese Seite zeigt dir, was Stromtarife wirklich unterscheidet: Jahreskosten, Laufzeit, Preisgarantie und Boni vor dem eigentlichen Vergleich.",
+    },
     infoBox: {
       ar: {
         title: "ما الذي يهم فعلاً في مقارنة الكهرباء؟",
@@ -658,6 +698,18 @@ const serviceWikiOverrides: Partial<Record<ServiceSlug, ServiceWikiOverride>> = 
           "Wenn du deinen Verbrauch nicht genau kennst, nutze einen realistischen Richtwert fuer deinen Haushalt.",
         ],
       },
+    },
+    examples: {
+      ar: [
+        "شخص انتقل إلى شقة جديدة ولا يعرف أي مزود كهرباء يختار.",
+        "عائلة تريد تخفيض التكلفة السنوية وتفهم إن كان البونص مفيداً فعلاً.",
+        "مستخدم يريد تغيير المزود الحالي لأن السعر ارتفع عليه هذا العام.",
+      ],
+      de: [
+        "Jemand ist neu in eine Wohnung gezogen und braucht schnell einen passenden Stromtarif.",
+        "Eine Familie will die Jahreskosten senken und Bonusangebote richtig einordnen.",
+        "Ein Haushalt moechte den Anbieter wechseln, weil der bisherige Tarif deutlich teurer wurde.",
+      ],
     },
   },
   oekostrom: {
@@ -715,9 +767,53 @@ const serviceWikiOverrides: Partial<Record<ServiceSlug, ServiceWikiOverride>> = 
     },
   },
   "c24-bank": {
+    ctaLabel: {
+      ar: "انتقل إلى العرض",
+      de: "Zum Angebot",
+    },
+    heroTitle: {
+      ar: "شرح سريع لحساب C24 Bank",
+      de: "C24 Bank kurz und einfach erklaert",
+    },
     heroDescription: {
       ar: "هنا لا يوجد نموذج مقارنة طويل، بل شرح سريع لفكرة الحساب الرقمي مع انتقال مباشر إلى العرض الرسمي إذا كان مناسباً لك.",
       de: "Hier gibt es kein langes Vergleichsformular, sondern eine kurze Einordnung zum digitalen Konto und danach den direkten Weg zum offiziellen Angebot.",
+    },
+    whenYouNeedIt: {
+      ar: [
+        "إذا كنت تريد حساباً رقمياً سريع الفتح بدون تعقيد كبير.",
+        "عندما تبحث عن عرض مباشر بدلاً من مقارنة عشرات الحسابات.",
+        "إذا أردت أن تفهم الفكرة أولاً ثم تذهب إلى الصفحة الرسمية للبنك.",
+      ],
+      de: [
+        "Wenn du ein digitales Konto mit schnellem Einstieg suchst.",
+        "Wenn du lieber direkt ein konkretes Angebot statt vieler Vergleiche sehen willst.",
+        "Wenn du die Grundidee kurz verstehen und dann zum offiziellen Angebot wechseln moechtest.",
+      ],
+    },
+    tips: {
+      ar: [
+        "اقرأ أولاً هل الحساب يناسب استخدامك اليومي أو السفر أو الدفع الرقمي.",
+        "راجع الشروط الأساسية مثل البطاقة، السحب النقدي، والتطبيق قبل فتح العرض الرسمي.",
+        "إذا كنت تريد مقارنة أوسع بين بنوك مختلفة، فابدأ من قسم الحسابات الجارية بدلاً من هذه الصفحة.",
+      ],
+      de: [
+        "Pruefe zuerst, ob das Konto eher zu Alltag, Reisen oder digitalem Bezahlen passt.",
+        "Achte auf Karte, Bargeldnutzung und App-Erlebnis, bevor du ins offizielle Angebot gehst.",
+        "Wenn du breiter zwischen mehreren Banken vergleichen willst, starte besser im Girokonto-Bereich.",
+      ],
+    },
+    examples: {
+      ar: [
+        "مستخدم يريد حساباً رقمياً بسيطاً ويفضل الانتقال مباشرة إلى العرض.",
+        "شخص لا يريد المقارنة الطويلة بل يريد فهم سريع ثم قرار واضح.",
+        "مستخدم يبحث عن صفحة تعريفية مختصرة قبل فتح حساب جديد.",
+      ],
+      de: [
+        "Jemand moechte ein einfaches digitales Konto und direkt zum Angebot weitergehen.",
+        "Eine Person will keine lange Vergleichsliste, sondern eine kurze Einordnung und dann eine klare Entscheidung.",
+        "Jemand sucht eine kompakte Infoseite vor der eigentlichen Kontoeroeffnung.",
+      ],
     },
   },
 };
@@ -728,23 +824,23 @@ function createService(seed: ServiceSeed): ServicePageData {
 
   return {
     ...seed,
-    ctaLabel: {
+    ctaLabel: override?.ctaLabel ?? {
       ar: seed.toolKind === "form" ? "ابدأ النموذج" : "ابدأ المقارنة",
       de: seed.toolKind === "form" ? "Formular starten" : "Vergleich starten",
     },
     heroTitle: override?.heroTitle ?? {
-      ar: `${seed.title.ar} في المانيا`,
+      ar: `${seed.title.ar} في ألمانيا`,
       de: `${seed.title.de} in Deutschland vergleichen`,
     },
     heroDescription: override?.heroDescription ?? {
-      ar: `هذه الصفحة تشرح ${seed.title.ar} بطريقة مبسطة، ثم تنقلك مباشرة الى الاداة المناسبة حتى يصل المستخدم بسرعة الى ما يبحث عنه.`,
+      ar: `هذه الصفحة تشرح ${seed.title.ar} بطريقة مبسطة، ثم تنقلك مباشرة إلى الأداة المناسبة حتى يصل المستخدم بسرعة إلى ما يبحث عنه.`,
       de: `Diese Seite erklaert ${seed.title.de} einfach und fuehrt danach direkt zum passenden Tool, damit Nutzerinnen und Nutzer schneller ans Ziel kommen.`,
     },
     whenYouNeedIt: override?.whenYouNeedIt ?? {
       ar: [
         `عندما تريد مقارنة عروض ${seed.title.ar} بدون تشتت.`,
-        "اذا كنت جديدا في المانيا وتريد فهم الفكرة قبل التقديم.",
-        "عندما تريد الوصول السريع الى خيارات مناسبة لحالتك.",
+        "إذا كنت جديداً في ألمانيا وتريد فهم الفكرة قبل التقديم.",
+        "عندما تريد الوصول السريع إلى خيارات مناسبة لحالتك.",
       ],
       de: [
         `Wenn du Angebote fuer ${seed.title.de} uebersichtlich vergleichen moechtest.`,
@@ -754,9 +850,9 @@ function createService(seed: ServiceSeed): ServicePageData {
     },
     tips: override?.tips ?? {
       ar: [
-        "لا تنظر الى السعر وحده، بل راجع الشروط ومدة العقد او الالتزام ايضا.",
-        "اقرأ الوصف المختصر اولا ثم استخدم الاداة بهدوء خطوة خطوة.",
-        "اذا ظهرت لك نتائج كثيرة، ابدأ بثلاثة خيارات فقط ثم قارن بينها.",
+        "لا تنظر إلى السعر وحده، بل راجع الشروط ومدة العقد أو الالتزام أيضاً.",
+        "اقرأ الوصف المختصر أولاً ثم استخدم الأداة بهدوء خطوة خطوة.",
+        "إذا ظهرت لك نتائج كثيرة، ابدأ بثلاثة خيارات فقط ثم قارن بينها.",
       ],
       de: [
         "Achte nicht nur auf den Preis, sondern auch auf Bedingungen und Laufzeit.",
@@ -766,9 +862,9 @@ function createService(seed: ServiceSeed): ServicePageData {
     },
     examples: override?.examples ?? {
       ar: [
-        "مستخدم يريد قرارا واضحا بدون قراءة عشرات الصفحات الالمانية المعقدة.",
-        "شخص يقارن بين عدة عروض ويريد معرفة اين يبدأ بشكل صحيح.",
-        "عائلة او فرد يريد تقليل الوقت والوصول مباشرة الى الخيار المناسب.",
+        "مستخدم يريد قراراً واضحاً بدون قراءة عشرات الصفحات الألمانية المعقدة.",
+        "شخص يقارن بين عدة عروض ويريد معرفة أين يبدأ بشكل صحيح.",
+        "عائلة أو فرد يريد تقليل الوقت والوصول مباشرة إلى الخيار المناسب.",
       ],
       de: [
         "Eine Person moechte eine klare Entscheidung treffen, ohne viele komplizierte deutsche Seiten zu lesen.",
@@ -784,10 +880,10 @@ function createService(seed: ServiceSeed): ServicePageData {
         },
         {
           question: "هل المقارنة مجانية للمستخدم؟",
-          answer: "عادة نعم. قد نحصل نحن على عمولة شراكة بدون تكلفة اضافية عليك.",
+          answer: "عادة نعم. قد نحصل نحن على عمولة شراكة بدون تكلفة إضافية عليك.",
         },
         {
-          question: "ماذا لو لم افهم بعض الشروط؟",
+          question: "ماذا لو لم أفهم بعض الشروط؟",
           answer: "ابدأ بالشرح الموجود في الصفحة، ثم راجع تفاصيل العرض النهائي قبل اتخاذ القرار.",
         },
       ],
@@ -821,7 +917,7 @@ function createService(seed: ServiceSeed): ServicePageData {
     infoBox: override?.infoBox,
     seo: override?.seo ?? {
       ar: {
-        title: `${seed.title.ar} في المانيا | ArabVergleich`,
+        title: `${seed.title.ar} في ألمانيا | ArabVergleich`,
         description: `${seed.shortDescription.ar} مع شرح مبسط وخطوات عملية للمقارنة قبل متابعة الطلب.`,
       },
       de: {
@@ -851,9 +947,9 @@ const serviceSeeds: ServiceSeed[] = [
     icon: "Car",
     toolKeys: ["kfzCalculator"],
     toolKind: "calculator",
-    title: { ar: "تامين السيارة", de: "Kfz-Versicherung" },
+    title: { ar: "تأمين السيارة", de: "Kfz-Versicherung" },
     shortDescription: {
-      ar: "قارن تامين السيارة بسرعة وافهم الخطوات قبل اختيار العرض.",
+      ar: "قارن تأمين السيارة بسرعة وافهم الخطوات قبل اختيار العرض.",
       de: "Vergleiche Autoversicherungen uebersichtlich und finde schneller den passenden Tarif.",
     },
   },
@@ -863,9 +959,9 @@ const serviceSeeds: ServiceSeed[] = [
     icon: "Car",
     toolKeys: ["motorradCalculator"],
     toolKind: "calculator",
-    title: { ar: "تامين الدراجة النارية", de: "Motorrad" },
+    title: { ar: "تأمين الدراجة النارية", de: "Motorrad" },
     shortDescription: {
-      ar: "قسم مستقل للدراجات النارية حتى يصل المستخدم مباشرة الى المقارنة المناسبة.",
+      ar: "قسم مستقل للدراجات النارية حتى يصل المستخدم مباشرة إلى المقارنة المناسبة.",
       de: "Eigener Motorradbereich, damit Nutzer nicht im allgemeinen Kfz-Thema suchen muessen.",
     },
   },
@@ -877,7 +973,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "form",
     title: { ar: "التقاعد", de: "Rente" },
     shortDescription: {
-      ar: "ابدأ من الاساسيات ثم انتقل الى نموذج المقارنة الخاص بالتقاعد.",
+      ar: "ابدأ من الأساسيات ثم انتقل إلى نموذج المقارنة الخاص بالتقاعد.",
       de: "Verstehe den Einstieg in die Altersvorsorge und nutze danach direkt das passende Formular.",
     },
   },
@@ -889,7 +985,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "form",
     title: { ar: "تأمين العجز عن العمل", de: "Berufsunfaehigkeit" },
     shortDescription: {
-      ar: "صفحة مرتبة لفهم تامين العجز عن العمل قبل تعبئة النموذج.",
+      ar: "صفحة مرتبة لفهم تأمين العجز عن العمل قبل تعبئة النموذج.",
       de: "Ein klarer Einstieg in die Berufsunfaehigkeitsabsicherung mit direkter Weiterleitung zum Formular.",
     },
   },
@@ -901,7 +997,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "form",
     title: { ar: "تأمين الحياة", de: "Leben" },
     shortDescription: {
-      ar: "شرح مبسط لتأمين الحياة مع وصول مباشر الى النموذج المناسب.",
+      ar: "شرح مبسط لتأمين الحياة مع وصول مباشر إلى النموذج المناسب.",
       de: "Lebensversicherung einfach erklaert und direkt mit dem passenden Formular verknuepft.",
     },
   },
@@ -913,7 +1009,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "calculator",
     title: { ar: "تأمين الحوادث", de: "Unfall" },
     shortDescription: {
-      ar: "مقارنة تامين الحوادث ضمن قسم واضح وسهل للزائر.",
+      ar: "مقارنة تأمين الحوادث ضمن قسم واضح وسهل للزائر.",
       de: "Unfallversicherung in einer einfachen Vergleichsseite ohne unnötige Umwege.",
     },
   },
@@ -937,7 +1033,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "form",
     title: { ar: "تأمين الحياة المؤقت", de: "Risikoleben" },
     shortDescription: {
-      ar: "تنظيم واضح لتامين الحياة المؤقت مع انتقال مباشر الى الاداة.",
+      ar: "تنظيم واضح لتأمين الحياة المؤقت مع انتقال مباشر إلى الأداة.",
       de: "Risikoleben geordnet erklaert und direkt mit dem Vergleichsformular verbunden.",
     },
   },
@@ -949,7 +1045,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "form",
     title: { ar: "روروب رينته", de: "Ruerup-Rente" },
     shortDescription: {
-      ar: "صفحة مخصصة لروروب رينته حتى يسهل الوصول اليها من القسم الرئيسي.",
+      ar: "صفحة مخصصة لروروب رينته حتى يسهل الوصول إليها من القسم الرئيسي.",
       de: "Eigene Seite fuer Ruerup-Rente, klar einsortiert unter Vorsorge.",
     },
   },
@@ -959,9 +1055,9 @@ const serviceSeeds: ServiceSeed[] = [
     icon: "Heart",
     toolKeys: ["pflegezusatzForm"],
     toolKind: "form",
-    title: { ar: "تأمين الرعاية الاضافي", de: "Pflegezusatz" },
+    title: { ar: "تأمين الرعاية الإضافي", de: "Pflegezusatz" },
     shortDescription: {
-      ar: "فهم اساسيات تامين الرعاية الاضافي ثم متابعة النموذج المناسب.",
+      ar: "فهم أساسيات تأمين الرعاية الإضافي ثم متابعة النموذج المناسب.",
       de: "Pflegezusatzversicherung einfach verstehen und danach gezielt das Formular nutzen.",
     },
   },
@@ -973,7 +1069,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "form",
     title: { ar: "التأمين الصحي الخاص الكامل", de: "PKV Vollversicherung" },
     shortDescription: {
-      ar: "شرح مبسط للتأمين الصحي الخاص الكامل مع وصول مباشر الى النموذج.",
+      ar: "شرح مبسط للتأمين الصحي الخاص الكامل مع وصول مباشر إلى النموذج.",
       de: "PKV Vollversicherung klar eingeordnet, damit der Einstieg leichter wird.",
     },
   },
@@ -985,7 +1081,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "form",
     title: { ar: "PKV للموظفين الحكوميين", de: "PKV fuer Beamte" },
     shortDescription: {
-      ar: "قسم مخصص للموظفين الحكوميين لتسهيل الوصول الى خيارات التأمين المناسبة.",
+      ar: "قسم مخصص للموظفين الحكوميين لتسهيل الوصول إلى خيارات التأمين المناسبة.",
       de: "Eigener PKV-Bereich fuer Beamte mit direkter und passender Nutzerfuehrung.",
     },
   },
@@ -995,9 +1091,9 @@ const serviceSeeds: ServiceSeed[] = [
     icon: "Shield",
     toolKeys: ["krankenzusatzForm"],
     toolKind: "form",
-    title: { ar: "التأمين الصحي الاضافي", de: "Krankenzusatz" },
+    title: { ar: "التأمين الصحي الإضافي", de: "Krankenzusatz" },
     shortDescription: {
-      ar: "كل ما يحتاجه المستخدم لفهم التأمين الصحي الاضافي في صفحة واحدة.",
+      ar: "كل ما يحتاجه المستخدم لفهم التأمين الصحي الإضافي في صفحة واحدة.",
       de: "Zusatzversicherungen uebersichtlich gebuendelt und direkt mit dem Formular verknuepft.",
     },
   },
@@ -1033,7 +1129,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "calculator",
     title: { ar: "تأمين صحة الكلاب", de: "Hundekrankenversicherung" },
     shortDescription: {
-      ar: "مقارنة تامين صحة الكلاب في صفحة مستقلة وسهلة التصفح.",
+      ar: "مقارنة تأمين صحة الكلاب في صفحة مستقلة وسهلة التصفح.",
       de: "Hundekrankenversicherung sauber getrennt, damit Nutzer direkt dort starten koennen.",
     },
   },
@@ -1045,7 +1141,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "calculator",
     title: { ar: "تأمين المسؤولية", de: "Haftpflicht" },
     shortDescription: {
-      ar: "واحد من اهم الاقسام اليومية، مع شرح بسيط ثم اداة مقارنة مباشرة.",
+      ar: "واحد من أهم الأقسام اليومية، مع شرح بسيط ثم أداة مقارنة مباشرة.",
       de: "Ein zentraler Alltagsvergleich mit klarer Einordnung und direktem Toolzugang.",
     },
   },
@@ -1057,7 +1153,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "calculator",
     title: { ar: "تأمين محتويات المنزل", de: "Hausrat" },
     shortDescription: {
-      ar: "قسم مرتب لتأمين محتويات المنزل دون تعقيد او تشتيت.",
+      ar: "قسم مرتب لتأمين محتويات المنزل دون تعقيد أو تشتيت.",
       de: "Hausratversicherung uebersichtlich aufgebaut und leicht erreichbar.",
     },
   },
@@ -1069,7 +1165,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "calculator",
     title: { ar: "تأمين اصحاب الحيوانات", de: "Tierhalter" },
     shortDescription: {
-      ar: "خيار واضح لاصحاب الحيوانات مع وصول سريع الى المقارنة المناسبة.",
+      ar: "خيار واضح لأصحاب الحيوانات مع وصول سريع إلى المقارنة المناسبة.",
       de: "Tierhalterhaftpflicht in einem eigenen, klaren Vergleichsbereich.",
     },
   },
@@ -1117,7 +1213,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "form",
     title: { ar: "تأمين الشركات", de: "Firmen" },
     shortDescription: {
-      ar: "قسم منفصل للشركات حتى يصل المستخدم الى هذا المجال مباشرة.",
+      ar: "قسم منفصل للشركات حتى يصل المستخدم إلى هذا المجال مباشرة.",
       de: "Ein eigener Firmenbereich, damit gewerbliche Themen nicht zwischen Privatvergleichen verschwinden.",
     },
   },
@@ -1153,7 +1249,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "calculator",
     title: { ar: "القروض", de: "Kredit" },
     shortDescription: {
-      ar: "مقارنة القروض ضمن قسم واضح بدلا من بقاءها مخفية بين الخيارات العامة.",
+      ar: "مقارنة القروض ضمن قسم واضح بدلاً من بقائها مخفية بين الخيارات العامة.",
       de: "Kreditvergleich in einem sauberen Finanzbereich mit schneller Orientierung.",
     },
   },
@@ -1237,7 +1333,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "calculator",
     title: { ar: "السفر والعطلات", de: "Pauschalreise" },
     shortDescription: {
-      ar: "صفحة منظمة لعروض السفر والعطلات تسهل الوصول الى ما تبحث عنه.",
+      ar: "صفحة منظمة لعروض السفر والعطلات تسهل الوصول إلى ما تبحث عنه.",
       de: "Pauschalreisen in einer geordneten Vergleichsseite fuer einen schnellen Einstieg.",
     },
   },
@@ -1247,9 +1343,9 @@ const serviceSeeds: ServiceSeed[] = [
     icon: "Car",
     toolKeys: ["mietwagenCalculator"],
     toolKind: "calculator",
-    title: { ar: "تاجير السيارات", de: "Mietwagen" },
+    title: { ar: "تأجير السيارات", de: "Mietwagen" },
     shortDescription: {
-      ar: "اعثر على مقارنات تاجير السيارات ضمن نفس الهيكلية الواضحة.",
+      ar: "اعثر على مقارنات تأجير السيارات ضمن نفس الهيكلية الواضحة.",
       de: "Mietwagenvergleiche sauber integriert, damit Reisende schneller finden was sie brauchen.",
     },
   },
@@ -1261,7 +1357,7 @@ const serviceSeeds: ServiceSeed[] = [
     toolKind: "link",
     title: { ar: "C24 Bank", de: "C24 Bank" },
     shortDescription: {
-      ar: "انتقال مباشر الى العرض الرسمي للبنك مع شرح عربي مبسط قبل الخروج.",
+      ar: "انتقال مباشر إلى العرض الرسمي للبنك مع شرح عربي مبسط قبل الخروج.",
       de: "Direkter Einstieg zum offiziellen C24-Angebot mit kurzer Orientierung auf ArabVergleich.",
     },
   },

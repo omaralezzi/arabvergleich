@@ -13,10 +13,10 @@ export const metadata: Metadata = {
   applicationName: siteProfile.brandName,
   icons: {
     icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/av-logo-exact.png", type: "image/png" },
     ],
-    shortcut: ["/icon.svg"],
-    apple: ["/icon.svg"],
+    shortcut: ["/av-logo-exact.png"],
+    apple: ["/av-logo-exact.png"],
   },
   referrer: "origin-when-cross-origin",
   robots: {

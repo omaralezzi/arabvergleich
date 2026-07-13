@@ -127,11 +127,11 @@ export function Icon({ name, className = defaultClassName }: { name: string; cla
           <path d="M14 3c.5 2.4 2.1 4 4 4.5V11a8 8 0 0 1-4-1.2V16a5 5 0 1 1-5-5" />
         </svg>
       );
-    case "YouTube":
+    case "Telegram":
       return (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={className}>
-          <rect x="2.5" y="6" width="19" height="12" rx="4" />
-          <path d="m10 9 5 3-5 3Z" fill="currentColor" stroke="none" />
+          <path d="M21 4 3.8 10.6c-1.2.5-1.2 1.2-.2 1.5l4.4 1.4 1.7 5.4c.2.6.1.8.8.8.5 0 .8-.2 1-.5l2.5-2.4 5.1 3.8c.9.5 1.6.3 1.8-.9L23 5.6C23.3 4.4 22.6 3.8 21 4Z" />
+          <path d="m8.2 13.2 10.1-6.4" />
         </svg>
       );
     case "Facebook":

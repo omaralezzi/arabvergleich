@@ -46,7 +46,7 @@ export const footerDisclosure = {
 export const socialLinks = [
   { name: "Instagram", href: "https://instagram.com/arabvergleich" },
   { name: "TikTok", href: "https://tiktok.com/@arabvergleich" },
-  { name: "YouTube", href: "https://youtube.com/@arabvergleich" },
+  { name: "Telegram", href: "https://t.me/arabvergleich" },
   { name: "Facebook", href: "https://facebook.com/arabvergleich" },
 ] as const;
 

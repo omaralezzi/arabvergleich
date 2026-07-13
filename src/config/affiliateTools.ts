@@ -47,7 +47,7 @@ export const affiliateTools: Record<AffiliateToolKey, string> = {
   renteForm:
     '<div style="width: 100%" id="tcpp-iframe-rente"></div><script src="https://form.partner-versicherung.de/widgets/203108/tcpp-iframe-rente/rente-iframe.js"></script>',
   berufsunfaehigkeitForm:
-    '<div style="width: 100%" id="tcpp-iframe-bu"></div><script src="https://form.partner-versicherung.de/widgets/203108/tcpp-iframe-bu/bu-iframe.js"></script>',
+    '<div style="width: 100%" id="tcpp-iframe-buv"></div><script src="https://form.partner-versicherung.de/widgets/203108/tcpp-iframe-buv/buv-iframe.js"></script>',
   lebenForm:
     '<div style="width: 100%" id="tcpp-iframe-leben"></div><script src="https://form.partner-versicherung.de/widgets/203108/tcpp-iframe-leben/leben-iframe.js"></script>',
   unfallCalculator:

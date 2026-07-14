@@ -23,6 +23,15 @@ a {
   @apply transition-colors;
 }
 
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
 .surface {
   @apply rounded-3xl border border-slate-200 bg-white shadow-soft;
 }

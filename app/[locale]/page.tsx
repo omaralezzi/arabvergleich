@@ -115,8 +115,8 @@ export default async function LocaleHomePage({ params }: { params: Promise<{ loc
             </h2>
             <p className="mt-2 text-sm leading-7 text-slate-600">
               {currentLocale === "ar"
-                ? "هذه أبرز الخدمات السريعة. وتحتها ستجد كل الخدمات الجديدة مرتبة داخل أقسامها بشكل كامل."
-                : "Hier siehst du die wichtigsten Schnellzugriffe. Darunter findest du alle neuen Bereiche sauber nach Themen sortiert."}
+                ? "ابدأ من أكثر الخدمات طلباً، ثم انتقل بسهولة إلى بقية الأقسام حسب الموضوع الذي يهمك."
+                : "Starte mit den gefragtesten Bereichen und wechsle danach einfach in das Thema, das zu dir passt."}
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-3 lg:w-[34rem]">
@@ -154,8 +154,8 @@ export default async function LocaleHomePage({ params }: { params: Promise<{ loc
           </h2>
           <p className="mt-2 text-sm leading-7 text-slate-600">
             {currentLocale === "ar"
-              ? "هنا رجّعت كل الخدمات التي أضفناها اليوم ضمن مجموعات واضحة، حتى لا يضيع المستخدم بين الخيارات وحتى تبقى كل إضافة ظاهرة في مكانها الصحيح."
-              : "Hier sind alle Bereiche klar gruppiert, damit neue Leistungen sichtbar bleiben und Nutzer schneller den passenden Einstieg finden."}
+              ? "كل خدمة موجودة داخل قسمها المناسب، حتى تصل بسرعة إلى المجال الذي تبحث عنه بدون تشتيت."
+              : "Jeder Bereich ist klar geordnet, damit du schneller zum passenden Thema findest und den Ueberblick behaeltst."}
           </p>
         </div>
         <div className="grid gap-6 lg:grid-cols-2">
@@ -200,8 +200,8 @@ export default async function LocaleHomePage({ params }: { params: Promise<{ loc
               <h2 className="mt-2 text-2xl font-semibold text-brand-navy">{siteChrome.mostUsed.title[currentLocale]}</h2>
               <p className="mt-2 text-sm leading-7 text-slate-600">
                 {currentLocale === "ar"
-                  ? "إذا كنت تعرف ما الذي تبحث عنه، يمكنك الدخول مباشرة إلى أكثر الصفحات استخداماً."
-                  : "Wenn du schon weisst, wonach du suchst, kommst du hier direkt zu den meistgenutzten Seiten."}
+                  ? "إذا كنت تعرف الخدمة التي تريدها، يمكنك الدخول مباشرة إلى الصفحات الأكثر استخداماً."
+                  : "Wenn du schon weisst, welche Leistung du suchst, kommst du hier direkt zu den meistgenutzten Seiten."}
               </p>
             </div>
           </div>
@@ -237,8 +237,8 @@ export default async function LocaleHomePage({ params }: { params: Promise<{ loc
           </h2>
           <p className="mt-2 text-sm leading-7 text-slate-600">
             {currentLocale === "ar"
-              ? "هنا ستجد شرحاً مبسطاً لكنه مفيد فعلاً، حتى يفهم المستخدم الفكرة أولاً ثم يدخل إلى المقارنة وهو يعرف ماذا يختار."
-              : "Hier findest du einfache, aber wirklich hilfreiche Erklaerungen, damit Nutzerinnen und Nutzer das Thema zuerst verstehen und danach gezielt vergleichen."}
+              ? "اقرأ الشرح أولاً، ثم انتقل إلى المقارنة وأنت تعرف ما الذي يجب الانتباه له قبل الاختيار."
+              : "Lies zuerst die Erklaerung und gehe danach informierter in den Vergleich, damit du gezielter auswaehlen kannst."}
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2">

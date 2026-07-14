@@ -1381,6 +1381,7 @@ export const serviceToCategoryMap = Object.fromEntries(
 
 export const topNavigationGroups = serviceCategories.map((category) => ({
   slug: category.slug,
+  icon: category.icon,
   title: category.title,
   href: `#${category.slug}`,
 }));

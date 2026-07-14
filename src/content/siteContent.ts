@@ -304,7 +304,7 @@ export const articles: ArticleItem[] = [
       de: "Ist ein kostenloses Bankkonto fuer dich geeignet?",
     },
     description: {
-      ar: "أسئلة بسيطة تساعدك على معرفة ما تحتاجه من الحساب البنكي.",
+      ar: "تعرف على أهم النقاط التي تساعدك في اختيار الحساب البنكي المناسب لحياتك اليومية.",
       de: "Einfache Fragen, um herauszufinden, welches Konto zu deinem Alltag passt.",
     },
     sections: {

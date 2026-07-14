@@ -9,7 +9,7 @@ export function LanguageSwitcher({ locale, slug }: { locale: Locale; slug?: stri
   return (
     <Link
       href={href}
-      className="inline-flex min-h-11 items-center justify-center rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-brand-navy hover:border-brand-blue hover:text-brand-blue"
+      className="inline-flex min-h-10 items-center justify-center rounded-full border border-slate-200 px-3 py-1.5 text-sm font-medium text-brand-navy hover:border-brand-blue hover:text-brand-blue sm:min-h-11 sm:px-4 sm:py-2"
     >
       {locale === "ar" ? "Deutsch" : "العربية"}
     </Link>

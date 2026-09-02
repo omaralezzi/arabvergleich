@@ -39,6 +39,9 @@ export function Footer({ locale }: { locale: Locale }) {
           <Link href={`/${locale}/ueber-uns`} className="hover:text-brand-blue">
             {locale === "ar" ? "من نحن" : "Ueber uns"}
           </Link>
+          <Link href={`/${locale}/investieren`} className="hover:text-brand-blue">
+            {locale === "ar" ? "الاستثمار والتداول" : "Investieren & Trading"}
+          </Link>
         </div>
       </Container>
     </footer>

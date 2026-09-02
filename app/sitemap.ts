@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { siteProfile } from "@/src/content/siteSettings";
+import { investmentPageSlugs } from "@/src/content/investment";
 import { locales, serviceOrder } from "@/src/config/site";
 
 const legalPages = ["impressum", "datenschutz", "ueber-uns"] as const;
@@ -33,5 +34,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  return [...localeEntries, ...serviceEntries, ...legalEntries];
+  const investmentEntries = locales.flatMap((locale) => [
+    {
+      url: `${siteProfile.domain}/${locale}/investieren`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    ...investmentPageSlugs.map((page) => ({
+      url: `${siteProfile.domain}/${locale}/investieren/${page}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    })),
+  ]);
+
+  return [...localeEntries, ...serviceEntries, ...investmentEntries, ...legalEntries];
 }

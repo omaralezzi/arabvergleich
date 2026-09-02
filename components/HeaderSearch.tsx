@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
+import { investmentSearchItems } from "@/src/content/investment";
 import { serviceCategories } from "@/src/content/serviceCatalog";
 import type { Locale } from "@/src/config/site";
 
@@ -14,9 +15,9 @@ export function HeaderSearch({ locale }: HeaderSearchProps) {
   const [query, setQuery] = useState("");
   const [isFocused, setIsFocused] = useState(false);
 
-  const services = useMemo(
-    () =>
-      serviceCategories.flatMap((category) =>
+  const searchItems = useMemo(
+    () => [
+      ...serviceCategories.flatMap((category) =>
         category.services.map((service) => ({
           slug: service.slug,
           title: service.title[locale],
@@ -24,22 +25,29 @@ export function HeaderSearch({ locale }: HeaderSearchProps) {
           href: `/${locale}/${service.slug}`,
         })),
       ),
+      ...investmentSearchItems.map((item) => ({
+        slug: item.slug,
+        title: item.title[locale],
+        category: item.category[locale],
+        href: `/${locale}${item.href}`,
+      })),
+    ],
     [locale],
   );
 
   const normalizedQuery = query.trim().toLowerCase();
   const results = useMemo(() => {
     if (!normalizedQuery) {
-      return services.slice(0, 8);
+      return searchItems.slice(0, 8);
     }
 
-    return services
+    return searchItems
       .filter(
         (service) =>
           service.title.toLowerCase().includes(normalizedQuery) || service.category.toLowerCase().includes(normalizedQuery),
       )
       .slice(0, 8);
-  }, [normalizedQuery, services]);
+  }, [normalizedQuery, searchItems]);
 
   const hasDropdown = isFocused && results.length > 0;
 

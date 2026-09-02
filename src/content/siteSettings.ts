@@ -92,14 +92,14 @@ export const legalContent = {
     },
     check24Body: {
       ar: [
-        "يستخدم هذا الموقع روابط وأدوات مقارنة من شركاء خارجيين، وخصوصاً CHECK24 وTarifcheck.",
-        "عند استخدام هذه الأدوات أو الضغط على بعض الروابط قد نحصل على عمولة أو تعويض تسويقي، من دون أي تكلفة إضافية على المستخدم.",
-        "عند تحميل هذه الأدوات قد يتم نقل بيانات تقنية إلى مزود الأداة الخارجية بحسب طريقة عمله وسياسة الخصوصية الخاصة به.",
+        "يستخدم هذا الموقع روابط وأدوات مقارنة من شركاء خارجيين، وخصوصاً CHECK24 وTarifcheck، وفي قسم الاستثمار قد تظهر أيضاً روابط شراكة إلى XTB.",
+        "عند استخدام الأدوات أو الضغط على بعض روابط الشراكة قد نحصل على عمولة أو تعويض تسويقي. شروط ورسوم الشريك المعروضة عند فتح الرابط هي المرجع قبل التسجيل أو إتمام أي طلب.",
+        "عند تحميل هذه الأدوات أو الانتقال إلى شريك خارجي قد يتم نقل بيانات تقنية بحسب طريقة عمله وسياسة الخصوصية الخاصة به.",
       ],
       de: [
-        "Diese Website nutzt Partnerlinks und Vergleichstools externer Anbieter, insbesondere von CHECK24 und Tarifcheck.",
-        "Bei der Nutzung dieser Tools oder beim Anklicken bestimmter Partnerlinks koennen wir eine Provision oder Werbekostenerstattung erhalten, ohne Mehrkosten fuer Nutzerinnen und Nutzer.",
-        "Beim Laden solcher Tools koennen technische Daten gemaess der Funktionsweise und den Datenschutzhinweisen des jeweiligen Anbieters an den externen Partner uebermittelt werden.",
+        "Diese Website nutzt Partnerlinks und Vergleichstools externer Anbieter, insbesondere von CHECK24 und Tarifcheck. Im Investment-Bereich koennen zudem Partnerlinks zu XTB erscheinen.",
+        "Bei Nutzung der Tools oder beim Anklicken bestimmter Partnerlinks koennen wir eine Provision oder Werbekostenerstattung erhalten. Vor einer Registrierung oder Anfrage sind die beim Partner angezeigten Bedingungen und Kosten massgeblich.",
+        "Beim Laden solcher Tools oder beim Wechsel zu einem externen Partner koennen technische Daten gemaess der Funktionsweise und den Datenschutzhinweisen des jeweiligen Anbieters uebermittelt werden.",
       ],
     },
   },
@@ -150,11 +150,11 @@ export const legalContent = {
         },
         body: {
           ar: [
-            "بعض الصفحات تحتوي على روابط شراكة أو أدوات مقارنة خارجية مثل CHECK24 وTarifcheck. عند تحميل هذه الأدوات قد يتم الاتصال مباشرة بخوادم الطرف الخارجي.",
+            "بعض الصفحات تحتوي على روابط شراكة أو أدوات مقارنة خارجية مثل CHECK24 وTarifcheck، وقد تحتوي صفحات الاستثمار على روابط إلى XTB. عند تحميل الأداة أو الانتقال إلى الرابط قد يتم الاتصال بخوادم الطرف الخارجي.",
             "إذا ضغط المستخدم على رابط شراكة أو استخدم أداة مقارنة، فقد تنتقل بيانات تقنية أو بيانات استخدام إلى الجهة الشريكة بحسب طريقة عمل الأداة نفسها.",
           ],
           de: [
-            "Einige Seiten enthalten Partnerlinks oder externe Vergleichstools, zum Beispiel von CHECK24 und Tarifcheck. Beim Laden dieser Inhalte kann eine Verbindung zu Servern des jeweiligen Partners aufgebaut werden.",
+            "Einige Seiten enthalten Partnerlinks oder externe Vergleichstools, zum Beispiel von CHECK24 und Tarifcheck. Investment-Seiten koennen zudem Links zu XTB enthalten. Beim Laden dieser Inhalte oder beim Wechsel ueber einen Link kann eine Verbindung zu Servern des jeweiligen Partners aufgebaut werden.",
             "Wenn Nutzerinnen oder Nutzer Partnerlinks anklicken oder Vergleichstools verwenden, koennen technische Daten oder Nutzungsdaten an den jeweiligen Anbieter uebermittelt werden.",
           ],
         },

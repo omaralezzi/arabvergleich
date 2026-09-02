@@ -2,9 +2,9 @@ import Link from "next/link";
 
 import type { Locale } from "@/src/config/site";
 
-export function LanguageSwitcher({ locale, slug }: { locale: Locale; slug?: string }) {
+export function LanguageSwitcher({ locale, slug, path }: { locale: Locale; slug?: string; path?: string }) {
   const targetLocale = locale === "ar" ? "de" : "ar";
-  const href = slug ? `/${targetLocale}/${slug}` : `/${targetLocale}`;
+  const href = path ? `/${targetLocale}${path}` : slug ? `/${targetLocale}/${slug}` : `/${targetLocale}`;
 
   return (
     <Link

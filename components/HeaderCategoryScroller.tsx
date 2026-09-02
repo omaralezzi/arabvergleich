@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 
+import { investmentNavigationGroup } from "@/src/content/investment";
 import { topNavigationGroups } from "@/src/content/serviceCatalog";
 import type { Locale } from "@/src/config/site";
 
@@ -11,6 +12,8 @@ type HeaderCategoryScrollerProps = {
 };
 
 export function HeaderCategoryScroller({ locale }: HeaderCategoryScrollerProps) {
+  const navigationGroups = [...topNavigationGroups, investmentNavigationGroup];
+  const desktopColumnCount = Math.ceil(navigationGroups.length / 2);
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const dragStateRef = useRef<{ isDown: boolean; isDragging: boolean; startX: number; startScrollLeft: number }>({
     isDown: false,
@@ -18,49 +21,6 @@ export function HeaderCategoryScroller({ locale }: HeaderCategoryScrollerProps) 
     startX: 0,
     startScrollLeft: 0,
   });
-  const [showStartArrow, setShowStartArrow] = useState(false);
-  const [showEndArrow, setShowEndArrow] = useState(false);
-
-  function updateArrowVisibility() {
-    const element = scrollRef.current;
-    if (!element) return;
-
-    const maxScrollLeft = element.scrollWidth - element.clientWidth;
-    const current = Math.max(0, element.scrollLeft);
-
-    setShowStartArrow(current > 8);
-    setShowEndArrow(current < maxScrollLeft - 8);
-  }
-
-  useEffect(() => {
-    updateArrowVisibility();
-
-    const element = scrollRef.current;
-    if (!element) return;
-
-    const handleScroll = () => updateArrowVisibility();
-    const handleResize = () => updateArrowVisibility();
-
-    element.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      element.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  function scrollByAmount(direction: "next" | "prev") {
-    const element = scrollRef.current;
-    if (!element) return;
-
-    const amount = Math.min(320, Math.max(180, element.clientWidth * 0.35));
-    element.scrollBy({
-      left: direction === "next" ? amount : -amount,
-      behavior: "smooth",
-    });
-  }
-
   function handlePointerDown(event: React.PointerEvent<HTMLDivElement>) {
     if (event.button !== 0) return;
 
@@ -85,7 +45,6 @@ export function HeaderCategoryScroller({ locale }: HeaderCategoryScrollerProps) 
 
     dragState.isDragging = true;
     element.scrollLeft = dragState.startScrollLeft - delta;
-    updateArrowVisibility();
   }
 
   function handlePointerUp() {
@@ -96,58 +55,50 @@ export function HeaderCategoryScroller({ locale }: HeaderCategoryScrollerProps) 
   }
 
   return (
-    <div className="relative">
-      {showStartArrow ? (
-        <>
-          <button
-            type="button"
-            onClick={() => scrollByAmount(locale === "ar" ? "next" : "prev")}
-            className="absolute inset-y-0 left-0 z-10 hidden h-11 w-11 self-center rounded-full border border-slate-200 bg-white/95 text-brand-blue shadow-sm transition hover:border-brand-blue hover:bg-brand-mist lg:flex lg:items-center lg:justify-center"
-            aria-label={locale === "ar" ? "تحريك الأقسام إلى اليسار" : "Kategorien nach links bewegen"}
-          >
-            <span aria-hidden="true">{locale === "ar" ? "→" : "←"}</span>
-          </button>
-          <div className="pointer-events-none absolute inset-y-0 left-12 z-[1] hidden w-12 bg-gradient-to-r from-white via-white/80 to-transparent lg:block" />
-        </>
-      ) : null}
-      {showEndArrow ? (
-        <div className="pointer-events-none absolute inset-y-0 right-12 z-[1] hidden w-12 bg-gradient-to-l from-white via-white/80 to-transparent lg:block" />
-      ) : null}
-      <div
-        ref={scrollRef}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={handlePointerUp}
-        className="scrollbar-hidden flex gap-2 overflow-x-auto pb-1 text-sm text-slate-600 lg:px-14"
-        style={{ cursor: "grab" }}
+    <>
+      <div className="relative lg:hidden">
+        <div
+          ref={scrollRef}
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+          className="scrollbar-hidden flex gap-2 overflow-x-auto pb-1 text-sm text-slate-600"
+          style={{ cursor: "grab" }}
+        >
+          {navigationGroups.map((group) => (
+            <Link
+              key={group.slug}
+              href={`/${locale}${group.href}`}
+              onClick={(event) => {
+                if (dragStateRef.current.isDragging) {
+                  event.preventDefault();
+                }
+              }}
+              className="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-slate-200 bg-slate-50 px-4 py-2.5 font-medium hover:border-brand-blue hover:bg-brand-mist hover:text-brand-blue"
+              draggable={false}
+            >
+              {group.title[locale]}
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <nav
+        aria-label={locale === "ar" ? "أقسام الموقع" : "Bereiche der Website"}
+        className="hidden gap-2 lg:grid"
+        style={{ gridTemplateColumns: `repeat(${desktopColumnCount}, minmax(0, 1fr))` }}
       >
-        {topNavigationGroups.map((group) => (
+        {navigationGroups.map((group) => (
           <Link
             key={group.slug}
-            href={`/${locale}#${group.slug}`}
-            onClick={(event) => {
-              if (dragStateRef.current.isDragging) {
-                event.preventDefault();
-              }
-            }}
-            className="inline-flex shrink-0 items-center whitespace-nowrap rounded-full border border-slate-200 bg-slate-50 px-4 py-2.5 font-medium hover:border-brand-blue hover:bg-brand-mist hover:text-brand-blue"
-            draggable={false}
+            href={`/${locale}${group.href}`}
+            className="inline-flex min-h-11 w-full items-center justify-center rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-center text-sm font-medium leading-5 text-slate-600 transition hover:border-brand-blue hover:bg-brand-mist hover:text-brand-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
           >
             {group.title[locale]}
           </Link>
         ))}
-      </div>
-      {showEndArrow ? (
-        <button
-          type="button"
-          onClick={() => scrollByAmount(locale === "ar" ? "prev" : "next")}
-          className="absolute inset-y-0 right-0 z-10 hidden h-11 w-11 self-center rounded-full border border-slate-200 bg-white/95 text-brand-blue shadow-sm transition hover:border-brand-blue hover:bg-brand-mist lg:flex lg:items-center lg:justify-center"
-          aria-label={locale === "ar" ? "تحريك الأقسام إلى اليمين" : "Kategorien nach rechts bewegen"}
-        >
-          <span aria-hidden="true">{locale === "ar" ? "←" : "→"}</span>
-        </button>
-      ) : null}
-    </div>
+      </nav>
+    </>
   );
 }

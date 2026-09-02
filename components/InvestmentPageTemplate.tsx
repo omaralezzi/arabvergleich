@@ -7,6 +7,7 @@ import { Hero } from "@/components/Hero";
 import { InvestmentAffiliateCTA } from "@/components/InvestmentAffiliateCTA";
 import { InvestmentCalculator } from "@/components/InvestmentCalculator";
 import { InvestmentDisclosure } from "@/components/InvestmentDisclosure";
+import { InvestmentPartnerJourney } from "@/components/InvestmentPartnerJourney";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import type { InvestmentPage } from "@/src/content/investment";
 import { mutableInvestmentData } from "@/src/config/investment";
@@ -24,14 +25,9 @@ export function InvestmentPageTemplate({ locale, page }: { locale: Locale; page:
         highlights={page.highlights[locale]}
         actions={
           <>
-            {page.primaryCta ? (
-              <InvestmentAffiliateCTA
-                campaign={page.primaryCta.campaign}
-                label={page.primaryCta.label[locale]}
-                locale={locale}
-                placement={page.primaryCta.placement}
-              />
-            ) : null}
+            <Link href="#xtb-next-step" className="inline-flex items-center justify-center rounded-full bg-brand-orange px-5 py-3 text-sm font-semibold text-white transition hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-blue">
+              {locale === "ar" ? "كيف تتابع إلى XTB؟" : "Wie geht es bei XTB weiter?"}
+            </Link>
             <LanguageSwitcher locale={locale} path={`/investieren/${page.slug}`} />
           </>
         }
@@ -41,17 +37,6 @@ export function InvestmentPageTemplate({ locale, page }: { locale: Locale; page:
         <section className="surface p-6 md:p-8">
           <Breadcrumbs locale={locale} current={page.title[locale]} />
           <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">{page.heroDescription[locale]}</p>
-          {page.secondaryCta ? (
-            <div className="mt-6">
-              <InvestmentAffiliateCTA
-                campaign={page.secondaryCta.campaign}
-                label={page.secondaryCta.label[locale]}
-                locale={locale}
-                placement={page.secondaryCta.placement}
-              />
-            </div>
-          ) : null}
-          <InvestmentDisclosure locale={locale} />
         </section>
 
         {page.slug === "trading" ? (
@@ -74,6 +59,8 @@ export function InvestmentPageTemplate({ locale, page }: { locale: Locale; page:
             </p>
           </section>
         ) : null}
+
+        <InvestmentPartnerJourney locale={locale} cta={page.primaryCta} trading={page.slug === "trading"} />
 
         <div className="grid gap-6 lg:grid-cols-2">
           {page.sections.map((section) => (
@@ -102,7 +89,9 @@ export function InvestmentPageTemplate({ locale, page }: { locale: Locale; page:
               {page.tradingCtas.map((cta) => (
                 <div key={cta.campaign} className="rounded-3xl border border-slate-200 bg-slate-50/80 p-5">
                   <p className="text-sm leading-7 text-slate-600">
-                    {locale === "ar" ? "رابط شراكة متخصص لهذا النوع من التداول." : "Spezialisierter Partnerlink fuer diesen Trading-Bereich."}
+                    {locale === "ar"
+                      ? "ينقلك هذا الرابط إلى صفحة XTB الخاصة بهذا النوع من التداول. راجع الشروط والرسوم والتحذيرات هناك قبل التسجيل أو الإيداع."
+                      : "Dieser Link fuehrt zum XTB-Angebot fuer diesen Trading-Bereich. Pruefe dort Bedingungen, Kosten und Warnhinweise vor einer Registrierung oder Einzahlung."}
                   </p>
                   <div className="mt-4">
                     <InvestmentAffiliateCTA campaign={cta.campaign} label={cta.label[locale]} locale={locale} placement={cta.placement} />

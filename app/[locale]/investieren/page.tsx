@@ -5,10 +5,10 @@ import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
-import { InvestmentAffiliateCTA } from "@/components/InvestmentAffiliateCTA";
 import { InvestmentDisclosure } from "@/components/InvestmentDisclosure";
 import { InvestmentFinder } from "@/components/InvestmentFinder";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { InvestmentPartnerJourney } from "@/components/InvestmentPartnerJourney";
 import { investmentNavigationGroup, investmentPageSlugs, investmentPages } from "@/src/content/investment";
 import { seoDefaults, siteProfile } from "@/src/content/siteSettings";
 import { locales, type Locale } from "@/src/config/site";
@@ -134,10 +134,18 @@ export default async function InvestmentHubPage({ params }: { params: Promise<{ 
             <Link href={`/${currentLocale}/investieren/xtb`} className="inline-flex rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold text-brand-navy hover:border-brand-blue hover:text-brand-blue">
               {currentLocale === "ar" ? "اقرأ مراجعة XTB" : "XTB Einordnung lesen"}
             </Link>
-            <InvestmentAffiliateCTA campaign="home" label={currentLocale === "ar" ? "اكتشف XTB" : "XTB entdecken"} locale={currentLocale} placement="comparison-card" />
           </div>
           <InvestmentDisclosure locale={currentLocale} />
         </section>
+
+        <InvestmentPartnerJourney
+          locale={currentLocale}
+          cta={{
+            campaign: "home",
+            label: { ar: "الانتقال إلى موقع XTB", de: "Zu XTB wechseln" },
+            placement: "partner-journey",
+          }}
+        />
       </Container>
     </>
   );

@@ -13,7 +13,7 @@ export type InvestmentSection = {
 export type InvestmentCta = {
   campaign: XtbCampaignKey;
   label: LocalizedText;
-  placement: "hero" | "inline" | "comparison-card" | "calculator-result";
+  placement: "hero" | "inline" | "comparison-card" | "calculator-result" | "partner-journey";
 };
 
 export type InvestmentPage = {
@@ -105,8 +105,8 @@ export const investmentPages: Record<InvestmentPageSlug, InvestmentPage> = {
       ar: { title: "مراجعة XTB في ألمانيا", description: "نظرة عربية متوازنة على XTB: الأسهم وETFs وخطط الاستثمار والتطبيق والتداول والمخاطر." },
       de: { title: "XTB Erfahrungen: Aktien, ETFs, Sparplaene und Trading", description: "Sachliche Orientierung zu XTB in Deutschland: Anlagewege, Plattform, Kostenhinweise und Risiken." },
     },
-    primaryCta: { campaign: "home", label: { ar: "اكتشف XTB", de: "XTB entdecken" }, placement: "hero" },
-    secondaryCta: { campaign: "mobile-app", label: { ar: "اطلع على تطبيق XTB", de: "XTB App ansehen" }, placement: "inline" },
+    primaryCta: { campaign: "home", label: { ar: "الانتقال إلى موقع XTB", de: "Zu XTB wechseln" }, placement: "hero" },
+    secondaryCta: { campaign: "mobile-app", label: { ar: "الانتقال إلى تطبيق XTB", de: "Zur XTB App wechseln" }, placement: "inline" },
     sections: [
       {
         title: { ar: "ما هو XTB؟", de: "Was ist XTB?" },
@@ -179,7 +179,7 @@ export const investmentPages: Record<InvestmentPageSlug, InvestmentPage> = {
       ar: { title: "الاستثمار في الأسهم في ألمانيا", description: "شرح مبسط للأسهم والأسهم الكسرية والتكاليف والمخاطر قبل استخدام عرض XTB." },
       de: { title: "Aktien kaufen: Grundlagen, Kosten und Risiken", description: "Einfacher Einstieg in Aktien, Bruchstuecke, Kosten und Risiken mit einem passenden XTB-Angebot." },
     },
-    primaryCta: { campaign: "stocks", label: { ar: "اطلع على عرض الأسهم لدى XTB", de: "XTB Aktien-Angebot ansehen" }, placement: "hero" },
+    primaryCta: { campaign: "stocks", label: { ar: "الانتقال إلى عرض الأسهم لدى XTB", de: "Zum XTB Aktien-Angebot" }, placement: "hero" },
     secondaryCta: { campaign: "etf", label: { ar: "تعرف على ETFs أيضاً", de: "Auch ETFs ansehen" }, placement: "inline" },
     sections: [
       {
@@ -226,7 +226,7 @@ export const investmentPages: Record<InvestmentPageSlug, InvestmentPage> = {
       ar: { title: "ما هو ETF؟ دليل ETF للمقيمين في ألمانيا", description: "شرح ETF والتنويع وTER وخطط ETF الاستثمارية مع رابط XTB مناسب." },
       de: { title: "ETF einfach erklaert: Diversifikation, TER und Sparplan", description: "Verstehe ETFs, Streuung, TER sowie ETF-Sparplaene und sieh dir das XTB ETF-Angebot an." },
     },
-    primaryCta: { campaign: "etf", label: { ar: "اطلع على عرض ETFs لدى XTB", de: "XTB ETF-Angebot ansehen" }, placement: "hero" },
+    primaryCta: { campaign: "etf", label: { ar: "الانتقال إلى عرض ETFs لدى XTB", de: "Zum XTB ETF-Angebot" }, placement: "hero" },
     secondaryCta: { campaign: "investment-plans-etf", label: { ar: "اكتشف خطة ETF الدورية", de: "ETF-Sparplan entdecken" }, placement: "inline" },
     sections: [
       {
@@ -273,7 +273,7 @@ export const investmentPages: Record<InvestmentPageSlug, InvestmentPage> = {
       ar: { title: "خطة ETF الاستثمارية في ألمانيا", description: "شرح خطط الاستثمار وETF Sparplan مع حاسبة توضيحية وروابط XTB المناسبة." },
       de: { title: "ETF Sparplan und Investitionsplan einfach erklaert", description: "Verstehe regelmaessiges Investieren mit ETF- und Aktiensparplaenen inklusive unverbindlichem Beispielrechner." },
     },
-    primaryCta: { campaign: "investment-plans", label: { ar: "اطلع على خطط الاستثمار لدى XTB", de: "XTB Sparplaene ansehen" }, placement: "hero" },
+    primaryCta: { campaign: "investment-plans", label: { ar: "الانتقال إلى خطط الاستثمار لدى XTB", de: "Zu den XTB Sparplaenen" }, placement: "hero" },
     secondaryCta: { campaign: "investment-plans-etf", label: { ar: "اكتشف خطة ETF لدى XTB", de: "XTB ETF-Sparplan entdecken" }, placement: "calculator-result" },
     sections: [
       {
@@ -320,7 +320,7 @@ export const investmentPages: Record<InvestmentPageSlug, InvestmentPage> = {
       ar: { title: "فائدة على الرصيد غير المستثمر لدى XTB", description: "شرح عربي لشروط ومخاطر الفائدة على الرصيد غير المستثمر قبل زيارة عرض XTB." },
       de: { title: "Zinsen auf nicht angelegtes Guthaben bei XTB", description: "Verstehe Bedingungen, Aenderungsrisiken und Abgrenzung zu Geldanlage vor dem XTB-Angebot." },
     },
-    primaryCta: { campaign: "interest", label: { ar: "راجع عرض الفائدة لدى XTB", de: "XTB Zinsangebot ansehen" }, placement: "hero" },
+    primaryCta: { campaign: "interest", label: { ar: "الانتقال إلى عرض الفائدة لدى XTB", de: "Zum XTB Zinsangebot" }, placement: "hero" },
     sections: [
       {
         title: { ar: "ما المقصود بالفائدة على الرصيد؟", de: "Was bedeutet Zins auf Guthaben?" },
@@ -383,9 +383,9 @@ export const investmentPages: Record<InvestmentPageSlug, InvestmentPage> = {
       },
     ],
     tradingCtas: [
-      { campaign: "forex", label: { ar: "استكشف تداول Forex لدى XTB", de: "XTB Forex ansehen" }, placement: "comparison-card" },
-      { campaign: "commodities", label: { ar: "استكشف السلع لدى XTB", de: "XTB Rohstoffe ansehen" }, placement: "comparison-card" },
-      { campaign: "indices", label: { ar: "استكشف المؤشرات لدى XTB", de: "XTB Indizes ansehen" }, placement: "comparison-card" },
+      { campaign: "forex", label: { ar: "الانتقال إلى تداول Forex لدى XTB", de: "Zum XTB Forex-Angebot" }, placement: "comparison-card" },
+      { campaign: "commodities", label: { ar: "الانتقال إلى السلع لدى XTB", de: "Zum XTB Rohstoff-Angebot" }, placement: "comparison-card" },
+      { campaign: "indices", label: { ar: "الانتقال إلى المؤشرات لدى XTB", de: "Zum XTB Indizes-Angebot" }, placement: "comparison-card" },
     ],
     faq: {
       ar: [{ question: "هل CFD مناسب للاستثمار طويل الأجل؟", answer: "CFD منتج تداول عالي المخاطر وليس مكافئاً تلقائياً لامتلاك سهم أو ETF على المدى الطويل." }],

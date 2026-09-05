@@ -1,38 +1,124 @@
 # ArabVergleich
 
-Next.js project for a bilingual Arabic/German comparison portal aimed at Arabic-speaking people in Germany.
+**Bilingual Arabic/German comparison and information platform for people living in Germany.**
 
-## Run locally
+[Live Demo](https://www.arabvergleich.de) · [Arabic](https://www.arabvergleich.de/ar) · [German](https://www.arabvergleich.de/de)
 
-1. Install dependencies with `pnpm install` or `npm install`.
-2. Start the dev server with `pnpm dev`.
-3. Open `http://localhost:3000`.
+## Overview
 
-## Deploy to Vercel
+ArabVergleich is a production-deployed Next.js project that helps Arabic-speaking users understand and compare important services in Germany before continuing to external partner tools or providers.
 
-1. Push this folder to a GitHub repository.
-2. Log in to Vercel and choose `Add New Project`.
-3. Import the GitHub repository.
-4. Keep the detected framework as `Next.js`.
-5. Deploy without adding environment variables.
+The project combines bilingual content, reusable comparison flows, partner integrations and structured routing in a single web application.
 
-Vercel should use the existing `build` script from `package.json` automatically.
+### What this project demonstrates
 
-## Where to edit things
+- Building and maintaining a real-world **Next.js / TypeScript** application
+- Arabic/German localization and RTL/LTR user experience
+- Reusable service and comparison page architecture
+- Centralized configuration for partner and affiliate integrations
+- Internal redirect handling for outbound partner links
+- Content-driven pages, FAQs and SEO-oriented information architecture
+- Deployment and operation on **Vercel**
+- Working on an existing production codebase through iterative, AI-assisted development
 
-- Impressum owner details: update the placeholder text in `app/[locale]/[service]/page.tsx` inside the `impressum` section.
-- Affiliate codes and links: update `src/config/affiliateTools.ts`.
-- Service copy, FAQs, SEO, and home page text: update `src/content/siteContent.ts`.
+## Tech Stack
 
-## Investment / XTB integration
+- **Next.js 15**
+- **React 18**
+- **TypeScript 5**
+- **Tailwind CSS 3**
+- **Vercel**
+- Partner / affiliate integrations
 
-- Provider data, approved XTB campaigns, internal paths, verification dates, and mutable risk data live in `src/config/investment.ts`.
-- All commercial XTB calls to action use internal `/go/xtb` redirects. Keep external affiliate URLs in the registry only; do not add them to page components or content files.
-- Investment pages and bilingual copy live in `src/content/investment.ts` and are served from `/[locale]/investieren`.
-- The educational finder and Sparplan calculator are client components. They do not collect financial suitability data or provide personal investment advice.
-- Update variable financial values, especially the CFD retail-loss warning, in the central registry after verified partner or official-source review.
-- Test investment changes with `./node_modules/.bin/tsc --noEmit` and `./node_modules/.bin/next build`, then check the `/go/xtb` routes before deployment.
+## Product Structure
 
-## Legal note
+The application separates content, integration configuration and UI concerns so that services can be expanded without duplicating the complete page logic.
 
-Impressum and Datenschutz texts are placeholders and should be reviewed legally before publishing the website.
+Key areas include:
+
+```text
+app/                         Application routes and localized pages
+components/                  Reusable UI components
+src/content/                 Bilingual site and service content
+src/config/                  Integration and partner configuration
+public/                      Static assets
+```
+
+Important configuration points:
+
+- `src/config/affiliateTools.ts` — affiliate tools and outbound integrations
+- `src/config/investment.ts` — investment/provider configuration and verification metadata
+- `src/content/siteContent.ts` — service copy, FAQs and general content
+- `src/content/investment.ts` — bilingual investment content
+- `app/[locale]/...` — localized application routes
+
+## Selected Features
+
+### Bilingual experience
+
+The platform serves Arabic and German users with localized routes and content. The UI is designed to support both RTL and LTR reading directions.
+
+### Structured comparison journeys
+
+Users first receive a plain-language explanation of a service and the relevant decision criteria, then continue to a comparison tool or external partner.
+
+### Centralized partner integrations
+
+Commercial outbound links are kept in configuration instead of being scattered across UI components. For example, XTB-related calls to action use internal redirect routes before forwarding to the approved external destination.
+
+### Content and SEO architecture
+
+Service explanations, FAQs and educational content are separated from presentation logic, making the platform easier to maintain and extend.
+
+## Run Locally
+
+Requirements: a recent Node.js version and npm or pnpm.
+
+```bash
+npm install
+npm run dev
+```
+
+or
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Then open:
+
+```text
+http://localhost:3000
+```
+
+## Build
+
+```bash
+npm run build
+```
+
+The production deployment is hosted on Vercel.
+
+## Live Product
+
+- Main site: https://www.arabvergleich.de
+- Arabic: https://www.arabvergleich.de/ar
+- German: https://www.arabvergleich.de/de
+
+## Development Approach
+
+I use AI-assisted development as part of my workflow for requirements analysis, implementation, refactoring and debugging, while reviewing the generated code and keeping project structure, integrations and deployment under direct control.
+
+## Portfolio Note
+
+This repository is shared as part of my professional software-development portfolio. Some commercial partner configuration may change over time and should be verified against the corresponding provider before production use.
+
+Legal and financial content on the live platform is informational and does not constitute individual legal or financial advice.
+
+---
+
+**Omar Al-Ezzi**  
+Fullstack Developer · AI & SaaS Applications  
+GitHub: https://github.com/omaralezzi  
+Portfolio: https://al-ezzi.netlify.app
